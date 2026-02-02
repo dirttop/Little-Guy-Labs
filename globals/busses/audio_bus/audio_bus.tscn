@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://dxojw00p8x0nm"]
+
+[ext_resource type="Script" uid="uid://dda223dxdc3cr" path="res://globals/busses/audio_bus/audio_bus.gd" id="1_n83aq"]
+
+[node name="AudioBus" type="Node" unique_id=1979051080]
+script = ExtResource("1_n83aq")
+
+[node name="PlayerPool" type="Node" parent="." unique_id=1910388779]
+
+[node name="SFXPlayer1" type="AudioStreamPlayer" parent="PlayerPool" unique_id=505333206]
+
+[node name="SFXPlayer2" type="AudioStreamPlayer" parent="PlayerPool" unique_id=738147634]
+
+[node name="SFXPlayer3" type="AudioStreamPlayer" parent="PlayerPool" unique_id=235075214]
+
+[node name="SFXPlayer4" type="AudioStreamPlayer" parent="PlayerPool" unique_id=394780336]
+
+[node name="SFXPlayer5" type="AudioStreamPlayer" parent="PlayerPool" unique_id=1115241492]
+
+[node name="SFXPlayer6" type="AudioStreamPlayer" parent="PlayerPool" unique_id=2066352431]
+
+[node name="SFXPlayer7" type="AudioStreamPlayer" parent="PlayerPool" unique_id=1114450160]
+
+[node name="SFXPlayer8" type="AudioStreamPlayer" parent="PlayerPool" unique_id=349041954]
+
+[node name="SFXPlayer9" type="AudioStreamPlayer" parent="PlayerPool" unique_id=946836429]
+
+[node name="SFXPlayer10" type="AudioStreamPlayer" parent="PlayerPool" unique_id=1489958688]
+
+[node name="SFXPlayer11" type="AudioStreamPlayer" parent="PlayerPool" unique_id=676056806]
+
+[node name="SFXPlayer12" type="AudioStreamPlayer" parent="PlayerPool" unique_id=554989921]
+
+[node name="SFXPlayer13" type="AudioStreamPlayer" parent="PlayerPool" unique_id=606808199]
+
+[node name="SFXPlayer14" type="AudioStreamPlayer" parent="PlayerPool" unique_id=1449403612]
+
+[node name="SFXPlayer15" type="AudioStreamPlayer" parent="PlayerPool" unique_id=414211271]
+
+[node name="SFXPlayer16" type="AudioStreamPlayer" parent="PlayerPool" unique_id=1952244415]
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=1555561636]
