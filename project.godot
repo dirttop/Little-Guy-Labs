@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Little Guy Labs"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://tools/test/assets/svg/icon.svg"
+config/icon="res://tools/test/assets/svgs/icon.svg"
 
 [physics]
 
