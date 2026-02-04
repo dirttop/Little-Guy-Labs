@@ -1,7 +1,7 @@
 extends Node
 
 @export var audio_library: AudioLibrary
-const audio_player = preload("res://elements/audio/tools/audio_player/audio_player.tscn")
+const audio_player = preload("res://elements/audio/utils/audio_player/audio_player.tscn")
 
 @onready var music_player = $MusicPlayer
 @onready var sfx_pool = $PlayerPool.get_children()
@@ -21,7 +21,7 @@ func play_sfx(key: StringName):
 	player.pitch_scale = 1.0 + randf_range(-entry.pitch_var, entry.pitch_var)
 	player.play()
 
-func play_sfx_at(key: StringName, position: Vector2):
+func play_sfx_at(key: StringName, position: Vector3):
 	var entry: AudioEntry = audio_library.sfx_library.get(key)
 	if not entry:
 		printerr("Error (Audio): SFX key not found in library: ", key)
