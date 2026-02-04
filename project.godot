@@ -13,7 +13,7 @@ config_version=5
 config/name="Little Guy Labs"
 run/main_scene="uid://3dtaq7x55x3"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://tools/test/assets/svg/icon.svg"
+config/icon="res://tools/test/assets/svgs/icon.svg"
 
 [input]
 
