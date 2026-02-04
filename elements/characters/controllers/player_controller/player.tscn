@@ -9,9 +9,11 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pilp0"]
 
 [node name="Player" type="CharacterBody3D" unique_id=634872658]
+collision_layer = 2
 script = ExtResource("1_pilp0")
-speed = 50
+speed = 5
 acceleration = 300
+pushing_force = 5
 
 [node name="Gravity" parent="." unique_id=114934454 instance=ExtResource("1_vhhxv")]
 

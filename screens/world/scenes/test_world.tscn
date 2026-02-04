@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://3dtaq7x55x3"]
 
 [ext_resource type="PackedScene" uid="uid://dealwnbo13uwy" path="res://elements/characters/controllers/player_controller/player.tscn" id="1_6trsn"]
+[ext_resource type="PackedScene" uid="uid://bim10ytvc0vp3" path="res://elements/rigids/box.tscn" id="2_ioxeb"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6trsn"]
 albedo_color = Color(0.6811214, 0.30667856, 0.43880287, 1)
@@ -41,3 +42,6 @@ light_angular_distance = 90.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1904686219]
 environment = SubResource("Environment_ecqqg")
+
+[node name="Box" parent="." unique_id=161166509 instance=ExtResource("2_ioxeb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.9349174, 1.8982093, 2.8929882)
