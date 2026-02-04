@@ -1,33 +1,38 @@
-[gd_scene format=3 uid="uid://dealwnbo13uwy"]
+[gd_scene format=3 uid="uid://b7ea6qb54yitx"]
 
-[ext_resource type="Script" uid="uid://l4x0lfyc1nbr" path="res://elements/characters/controllers/player_controller/player.gd" id="1_pilp0"]
+[ext_resource type="Script" path="res://elements/characters/controllers/player_controller/player.gd" id="1_pilp0"]
 [ext_resource type="PackedScene" uid="uid://gp3i0l7w4shm" path="res://elements/characters/components/base_components/gravity/gravity.tscn" id="1_vhhxv"]
 [ext_resource type="PackedScene" uid="uid://01h31cbpjc68" path="res://elements/characters/components/player_components/player_jump/player_jump.tscn" id="2_pilp0"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_pilp0"]
+radius = 0.25
+height = 1.0
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pilp0"]
+radius = 0.25
+height = 1.0
 
 [node name="Player" type="CharacterBody3D" unique_id=634872658]
 collision_layer = 2
 script = ExtResource("1_pilp0")
 speed = 5
-acceleration = 300
+acceleration = 20
 pushing_force = 5
 
 [node name="Gravity" parent="." unique_id=114934454 instance=ExtResource("1_vhhxv")]
 
 [node name="PlayerJump" parent="." unique_id=1164390139 node_paths=PackedStringArray("player") instance=ExtResource("2_pilp0")]
 player = NodePath("..")
-jump_velocity = 20
+jump_velocity = 4
 
 [node name="Mesh" type="MeshInstance3D" parent="." unique_id=773885104]
 mesh = SubResource("CapsuleMesh_pilp0")
 
-[node name="MainCollider" type="CollisionShape3D" parent="." unique_id=1528074861]
+[node name="MainCollider" type="CollisionShape3D" parent="." unique_id=1178566539]
 shape = SubResource("CapsuleShape3D_pilp0")
 
 [node name="CameraPivot" type="Marker3D" parent="." unique_id=348598842]
+visible = false
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot" unique_id=241064110]
 transform = Transform3D(1, 0, 0, 0, 0.89493436, 0.4461978, 0, -0.4461978, 0.89493436, 0, 1.5, 2.5)
