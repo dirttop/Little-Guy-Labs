@@ -37,10 +37,8 @@ func handle_jump() -> void:
 		jump()
 	
 	elif not player.is_on_floor() and Input.is_action_just_pressed("jump"):
-		if jumped: return
-		
 		# Recently left the ground
-		if not $CoyoteTimer.is_stopped():
+		if not $CoyoteTimer.is_stopped() and not jumped:
 			jump()
 		
 		elif $JumpBufferTimer.is_stopped():
