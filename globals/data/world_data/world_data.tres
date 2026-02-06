@@ -1,7 +1,0 @@
-[gd_resource type="Resource" script_class="WorldData" format=3 uid="uid://di1ijpgtqbox"]
-
-[ext_resource type="Script" uid="uid://c86653gegvlbg" path="res://globals/data/world_data/world_data.gd" id="1_2c1qb"]
-
-[resource]
-script = ExtResource("1_2c1qb")
-metadata/_custom_type_script = "uid://c86653gegvlbg"
