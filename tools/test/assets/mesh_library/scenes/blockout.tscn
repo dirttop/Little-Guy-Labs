@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://dskj4dkvq8k6y"]
+
+[ext_resource type="PackedScene" uid="uid://bug732r87eoc7" path="res://tools/test/assets/models/blockout/blockout.glb" id="1_acw0l"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_acw0l"]
+data = PackedVector3Array(-0.5, 0, 0.5, -0.5, 1, -0.5, -0.5, 1, 0.5, -0.5, 0, 0.5, -0.5, 0, -0.5, -0.5, 1, -0.5, -0.5, 0, -0.5, 0.5, 1, -0.5, -0.5, 1, -0.5, -0.5, 0, -0.5, 0.5, 0, -0.5, 0.5, 1, -0.5, 0.5, 0, -0.5, 0.5, 1, 0.5, 0.5, 1, -0.5, 0.5, 0, -0.5, 0.5, 0, 0.5, 0.5, 1, 0.5, 0.5, 0, 0.5, -0.5, 1, 0.5, 0.5, 1, 0.5, 0.5, 0, 0.5, -0.5, 0, 0.5, -0.5, 1, 0.5, -0.5, 0, -0.5, 0.5, 0, 0.5, 0.5, 0, -0.5, -0.5, 0, -0.5, -0.5, 0, 0.5, 0.5, 0, 0.5, 0.5, 1, -0.5, -0.5, 1, 0.5, -0.5, 1, -0.5, 0.5, 1, -0.5, 0.5, 1, 0.5, -0.5, 1, 0.5)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_dtywm"]
+data = PackedVector3Array(-0.5, 0, 0.5, -0.5, 1, -0.5, -0.5, 1, 0.5, -0.5, 0, 0.5, -0.5, 0, -0.5, -0.5, 1, -0.5, -0.5, 0, -0.5, 0.5, 1, -0.5, -0.5, 1, -0.5, -0.5, 0, -0.5, 0.5, 0, -0.5, 0.5, 1, -0.5, 0.5, 0, -0.5, 0.5, 1, 0.5, 0.5, 1, -0.5, 0.5, 0, -0.5, 0.5, 0, 0.5, 0.5, 1, 0.5, 0.5, 0, 0.5, -0.5, 1, 0.5, 0.5, 1, 0.5, 0.5, 0, 0.5, -0.5, 0, 0.5, -0.5, 1, 0.5, -0.5, 0, -0.5, 0.5, 0, 0.5, 0.5, 0, -0.5, -0.5, 0, -0.5, -0.5, 0, 0.5, 0.5, 0, 0.5, 0.5, 1, -0.5, -0.5, 1, 0.5, -0.5, 1, -0.5, 0.5, 1, -0.5, 0.5, 1, 0.5, -0.5, 1, 0.5)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_jyebg"]
+data = PackedVector3Array(-0.5, 0, 0.5, -0.5, 1, -0.5, -0.5, 1, 0.5, -0.5, 0, 0.5, -0.5, 0, -0.5, -0.5, 1, -0.5, -0.5, 1, -0.5, 0.5, 0, 0.5, -0.5, 1, 0.5, -0.5, 1, -0.5, 0.5, 0, -0.5, 0.5, 0, 0.5, -0.5, 0, -0.5, 0.5, 0, -0.5, -0.5, 1, -0.5, -0.5, 1, 0.5, 0.5, 0, 0.5, -0.5, 0, 0.5, -0.5, 0, -0.5, 0.5, 0, 0.5, 0.5, 0, -0.5, -0.5, 0, -0.5, -0.5, 0, 0.5, 0.5, 0, 0.5)
+
+[node name="Blockout" unique_id=568698046 instance=ExtResource("1_acw0l")]
+
+[node name="Body" type="StaticBody3D" parent="Block" parent_id_path=PackedInt32Array(520971786) index="0" unique_id=175863685]
+
+[node name="Collider" type="CollisionShape3D" parent="Block/Body" index="0" unique_id=1428969045]
+shape = SubResource("ConcavePolygonShape3D_acw0l")
+
+[node name="Body" type="StaticBody3D" parent="HalfBlock" parent_id_path=PackedInt32Array(697180211) index="0" unique_id=1271114812]
+
+[node name="Collider" type="CollisionShape3D" parent="HalfBlock/Body" index="0" unique_id=577589544]
+shape = SubResource("ConcavePolygonShape3D_dtywm")
+
+[node name="Body" type="StaticBody3D" parent="Slope" parent_id_path=PackedInt32Array(503511500) index="0" unique_id=1221026762]
+
+[node name="Collider" type="CollisionShape3D" parent="Slope/Body" index="0" unique_id=1581941905]
+shape = SubResource("ConcavePolygonShape3D_jyebg")

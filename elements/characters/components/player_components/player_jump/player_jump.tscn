@@ -1,3 +1,19 @@
 [gd_scene format=3 uid="uid://01h31cbpjc68"]
 
+[ext_resource type="Script" uid="uid://4jowyi7qigd2" path="res://elements/characters/components/player_components/player_jump/player_jump.gd" id="1_t2trl"]
+
 [node name="PlayerJump" type="Node" unique_id=1164390139]
+script = ExtResource("1_t2trl")
+jump_velocity = 200
+
+[node name="JumpCutTimer" type="Timer" parent="." unique_id=1981733284]
+one_shot = true
+
+[node name="CoyoteTimer" type="Timer" parent="." unique_id=1792398450]
+one_shot = true
+
+[node name="JumpBufferTimer" type="Timer" parent="." unique_id=1186219359]
+one_shot = true
+
+[connection signal="timeout" from="JumpCutTimer" to="." method="_on_jump_cut_timer_timeout"]
+[connection signal="timeout" from="CoyoteTimer" to="." method="_on_coyote_timer_timeout"]
