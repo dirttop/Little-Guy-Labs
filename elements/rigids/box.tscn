@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bim10ytvc0vp3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ifvoa"]
+albedo_color = Color(0.17816469, 0.040250026, 0.023842487, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ifvoa"]
+material = SubResource("StandardMaterial3D_ifvoa")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ifvoa"]
+
+[node name="Box" type="RigidBody3D" unique_id=161166509]
+collision_layer = 4
+collision_mask = 7
+lock_rotation = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=863051788]
+mesh = SubResource("BoxMesh_ifvoa")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1774157722]
+shape = SubResource("BoxShape3D_ifvoa")
