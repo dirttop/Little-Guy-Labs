@@ -1,8 +1,10 @@
-[gd_scene format=3 uid="uid://cj55a51a6l41d"]
+[gd_scene format=3 uid="uid://c2o6igmqijihc"]
 
 [ext_resource type="Script" uid="uid://crdpri0x35tmj" path="res://screens/world/world.gd" id="1_rcnok"]
-[ext_resource type="Resource" uid="uid://di1ijpgtqbox" path="res://globals/data/world_data/world_data.tres" id="2_34uwq"]
+[ext_resource type="Resource" uid="uid://1npqetx60pc4" path="res://globals/data/world_data/world_data.tres" id="2_34uwq"]
+[ext_resource type="PackedScene" uid="uid://b8s66g3ft7p2l" path="res://elements/characters/controllers/player_controller/player.tscn" id="3_uq6ha"]
 
 [node name="World" type="Node3D" unique_id=1928060947]
 script = ExtResource("1_rcnok")
 world_data = ExtResource("2_34uwq")
+player_scene = ExtResource("3_uq6ha")
