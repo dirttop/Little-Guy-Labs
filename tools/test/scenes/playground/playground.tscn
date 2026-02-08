@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c2ta05ddpjw57" path="res://tools/test/scenes/playground/playground.gd" id="1_qgcbx"]
 [ext_resource type="MeshLibrary" uid="uid://dhi40sc2cw3lp" path="res://tools/test/assets/mesh_library/blockout.meshlib" id="2_uxp36"]
-[ext_resource type="PackedScene" path="res://elements/characters/controllers/player_controller/player.tscn" id="3_tktdh"]
+[ext_resource type="PackedScene" uid="uid://b8s66g3ft7p2l" path="res://elements/characters/controllers/player_controller/player.tscn" id="3_tktdh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tktdh"]
 

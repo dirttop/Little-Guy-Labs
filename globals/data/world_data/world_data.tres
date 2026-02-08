@@ -1,11 +1,9 @@
 [gd_resource type="Resource" script_class="WorldData" format=3 uid="uid://1npqetx60pc4"]
 
 [ext_resource type="Script" uid="uid://c86653gegvlbg" path="res://globals/data/world_data/world_data.gd" id="1_2c1qb"]
-[ext_resource type="PackedScene" uid="uid://c0w7hgiteqm43" path="res://screens/world/scenes/hub/hub.tscn" id="1_w63hb"]
+[ext_resource type="PackedScene" uid="uid://dqrfvyqt74wk" path="res://tools/test/scenes/playground/playground.tscn" id="1_w63hb"]
 
 [resource]
 script = ExtResource("1_2c1qb")
 active_scene = ExtResource("1_w63hb")
-spawn_point = "Test"
-respawn_pos = null
 metadata/_custom_type_script = "uid://c86653gegvlbg"
