@@ -15,6 +15,24 @@ run/main_scene="uid://3dtaq7x55x3"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://tools/test/assets/svgs/icon.svg"
 
+[autoload]
+
+SignalBus="*uid://da40rouegg6be"
+AudioBus="*uid://dxojw00p8x0nm"
+SaveManager="*uid://crcxp8xwkn3n0"
+
+[debug]
+
+gdscript/warnings/unused_signal=0
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/set_scene/plugin.cfg")
+
+[global_group]
+
+player=""
+
 [input]
 
 forwards={
@@ -58,12 +76,6 @@ jump={
 3d_physics/layer_1="World"
 3d_physics/layer_2="Player"
 3d_physics/layer_3="Rigids"
-
-[autoload]
-
-SignalBus="*uid://da40rouegg6be"
-AudioBus="*uid://dxojw00p8x0nm"
-SaveManager="*uid://crcxp8xwkn3n0"
 
 [physics]
 

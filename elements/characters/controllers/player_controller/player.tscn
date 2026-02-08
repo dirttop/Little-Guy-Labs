@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://b7ea6qb54yitx"]
+[gd_scene format=3 uid="uid://b8s66g3ft7p2l"]
 
 [ext_resource type="Script" path="res://elements/characters/controllers/player_controller/player.gd" id="1_pilp0"]
 [ext_resource type="PackedScene" uid="uid://gp3i0l7w4shm" path="res://elements/characters/components/base_components/gravity/gravity.tscn" id="1_vhhxv"]
@@ -12,7 +12,7 @@ height = 1.0
 radius = 0.25
 height = 1.0
 
-[node name="Player" type="CharacterBody3D" unique_id=634872658]
+[node name="Player" type="CharacterBody3D" unique_id=634872658 groups=["player"]]
 collision_layer = 2
 script = ExtResource("1_pilp0")
 speed = 5
