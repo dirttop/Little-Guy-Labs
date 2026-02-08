@@ -4,7 +4,7 @@
 [ext_resource type="Resource" uid="uid://1npqetx60pc4" path="res://globals/data/world_data/world_data.tres" id="2_34uwq"]
 [ext_resource type="PackedScene" uid="uid://b8s66g3ft7p2l" path="res://elements/characters/controllers/player_controller/player.tscn" id="3_uq6ha"]
 
-[node name="World" type="Node3D" unique_id=1928060947]
+[node name="World" type="Node3D" unique_id=630707126]
 script = ExtResource("1_rcnok")
 world_data = ExtResource("2_34uwq")
 player_scene = ExtResource("3_uq6ha")

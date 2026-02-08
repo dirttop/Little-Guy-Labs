@@ -77,6 +77,12 @@ jump={
 3d_physics/layer_2="Player"
 3d_physics/layer_3="Rigids"
 
+[autoload]
+
+SignalBus="*uid://da40rouegg6be"
+AudioBus="*uid://dxojw00p8x0nm"
+SaveManager="*uid://crcxp8xwkn3n0"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
