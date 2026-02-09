@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://c14q2vi5g0jp3"]
 
+[ext_resource type="Script" uid="uid://c3fbvqheos83p" path="res://addons/set_scene/spawn_name.gd" id="1_otrvn"]
 [ext_resource type="Script" uid="uid://nawok3j5l86j" path="res://addons/set_scene/scene_path.gd" id="1_pq6gd"]
 [ext_resource type="Resource" uid="uid://1npqetx60pc4" path="res://globals/data/world_data/world_data.tres" id="2_otrvn"]
 
@@ -10,47 +11,76 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="Margin" type="MarginContainer" parent="." unique_id=460456932]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 1
-theme_override_constants/margin_bottom = 10
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -259.0
+offset_right = 259.0
+offset_bottom = 418.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 200
 
 [node name="VBox" type="VBoxContainer" parent="Margin" unique_id=795397589]
 layout_mode = 2
 
-[node name="Margin" type="MarginContainer" parent="Margin/VBox" unique_id=796268008]
+[node name="HBox" type="HBoxContainer" parent="Margin/VBox" unique_id=808092612]
 layout_mode = 2
-theme_override_constants/margin_left = 400
-theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 400
-theme_override_constants/margin_bottom = 50
+alignment = 1
 
-[node name="Button" type="Button" parent="Margin/VBox/Margin" unique_id=472487998]
+[node name="SceneTitle" type="Label" parent="Margin/VBox/HBox" unique_id=1037508852]
 layout_mode = 2
-text = "Set Active Scene"
-
-[node name="SceneTitle" type="Label" parent="Margin/VBox" unique_id=1037508852]
-layout_mode = 2
-text = "Current Scene:"
+text = "Current Scene: "
 horizontal_alignment = 1
 
-[node name="ScenePath" type="Label" parent="Margin/VBox" unique_id=1998480183]
+[node name="ScenePath" type="Label" parent="Margin/VBox/HBox" unique_id=1998480183]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.8627451, 0.8627451, 0.8627451, 1)
+text = "res://screens/world/scenes/test_world.tscn"
 horizontal_alignment = 1
 script = ExtResource("1_pq6gd")
 world_data = ExtResource("2_otrvn")
 
+[node name="HBox2" type="HBoxContainer" parent="Margin/VBox" unique_id=2072655526]
+layout_mode = 2
+alignment = 1
+
+[node name="SpawnTitle" type="Label" parent="Margin/VBox/HBox2" unique_id=191055612]
+layout_mode = 2
+text = "Current Spawn:"
+horizontal_alignment = 1
+
+[node name="SpawnName" type="Label" parent="Margin/VBox/HBox2" unique_id=15693382]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8627451, 0.8627451, 0.8627451, 1)
+horizontal_alignment = 1
+script = ExtResource("1_otrvn")
+world_data = ExtResource("2_otrvn")
+
+[node name="Margin" type="MarginContainer" parent="Margin/VBox" unique_id=131657517]
+layout_mode = 2
+theme_override_constants/margin_bottom = 20
+
 [node name="SpawnTitle" type="Label" parent="Margin/VBox" unique_id=1867902411]
 layout_mode = 2
-text = "Set Spawn Point:"
+text = "Set Spawn Point"
 horizontal_alignment = 1
 
 [node name="SpawnInput" type="LineEdit" parent="Margin/VBox" unique_id=1437616566]
 layout_mode = 2
 alignment = 1
+
+[node name="Margin2" type="MarginContainer" parent="Margin/VBox" unique_id=1249575108]
+layout_mode = 2
+theme_override_constants/margin_bottom = 20
+
+[node name="Button" type="Button" parent="Margin/VBox" unique_id=472487998]
+layout_mode = 2
+text = "Set"
