@@ -5,7 +5,7 @@ var dock
 
 func _enter_tree() -> void:
 	dock = preload("res://addons/set_scene/set_scene.tscn").instantiate()
-	var button = dock.get_node("Margin/VBox/Margin/Button")
+	var button = dock.get_node("Margin/VBox/Button")
 	button.pressed.connect(_on_set_pressed)
 
 	add_control_to_bottom_panel(dock, "Set Scene")
