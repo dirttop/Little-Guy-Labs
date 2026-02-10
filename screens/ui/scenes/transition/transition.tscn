@@ -86,7 +86,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.25, 1, 1.25),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(-1452, 0), Vector2(-1402, 0), Vector2(-50, 0), Vector2(0, 0)]
+"values": [Vector2(-1602, 0), Vector2(-1552, 0), Vector2(-50, 0), Vector2(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_fuyvw"]
@@ -102,7 +102,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.25, 1, 1.25),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(-50, 0), Vector2(-1402, 0), Vector2(-1452, 0)]
+"values": [Vector2(0, 0), Vector2(-50, 0), Vector2(-1552, 0), Vector2(-1602, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7opoq"]
@@ -137,30 +137,41 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 0.00012207031
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.05, 1.05)
 
 [node name="Rect" type="ColorRect" parent="Screen" unique_id=1119119260]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 1.0
 offset_right = 1.0
 offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="In" type="Sprite2D" parent="Screen" unique_id=2095218907]
+[node name="In" type="TextureRect" parent="Screen" unique_id=802710516]
 modulate = Color(0, 0, 0, 1)
-position = Vector2(1311.0001, 324)
-scale = Vector2(0.44989377, 0.9)
+layout_mode = 0
+offset_left = 1152.0
+offset_right = 1859.0
+offset_bottom = 720.0
+scale = Vector2(0.45, 0.9)
 texture = ExtResource("2_g2i4m")
 
-[node name="Out" type="Sprite2D" parent="Screen" unique_id=2050003772]
+[node name="Out" type="TextureRect" parent="Screen" unique_id=1497682957]
 modulate = Color(0, 0, 0, 1)
-position = Vector2(1295.0001, 324.50003)
-scale = Vector2(0.45, 0.9013888)
+layout_mode = 0
+offset_left = 1152.0
+offset_top = 1.0
+offset_right = 1789.0
+offset_bottom = 721.0
+scale = Vector2(0.45, 0.9)
 texture = ExtResource("3_j2s02")
 
 [node name="Margin" type="MarginContainer" parent="Screen" unique_id=24683509]
