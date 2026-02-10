@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" uid="uid://c2ta05ddpjw57" path="res://tools/test/scenes/playground/playground.gd" id="1_qgcbx"]
 [ext_resource type="MeshLibrary" uid="uid://dhi40sc2cw3lp" path="res://tools/test/assets/mesh_library/blockout.meshlib" id="2_uxp36"]
-[ext_resource type="PackedScene" uid="uid://b8s66g3ft7p2l" path="res://elements/characters/controllers/player_controller/player.tscn" id="3_tktdh"]
+[ext_resource type="PackedScene" uid="uid://cyxpr6pqbwc1r" path="res://elements/statics/triggers/transition_trigger/transition_trigger.tscn" id="4_4k0kt"]
+[ext_resource type="PackedScene" uid="uid://c0w7hgiteqm43" path="res://screens/world/scenes/hub/hub.tscn" id="5_cxxcb"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tktdh"]
 
@@ -12,6 +13,10 @@ sky_material = SubResource("ProceduralSkyMaterial_tktdh")
 [sub_resource type="Environment" id="Environment_cxxcb"]
 background_mode = 2
 sky = SubResource("Sky_4k0kt")
+
+[sub_resource type="SphereMesh" id="SphereMesh_cxxcb"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r5sj3"]
 
 [node name="Playground" type="Node3D" unique_id=680942496]
 script = ExtResource("1_qgcbx")
@@ -23,11 +28,6 @@ data = {
 "cells": PackedInt32Array(-1, 0, 0, -65536, 0, 0, -65536, 65535, 0, -1, 65535, 0, -65536, 65534, 0, -1, 65534, 0, -1, 1, 0, -65536, 1, 0, -65535, 1, 0, -65535, 65535, 0, -65535, 0, 0, -65535, 65534, 0, -2, 1, 0, -2, 0, 0, -2, 65535, 0, -2, 65534, 0, -65534, 2, 0, -65535, 2, 0, -65536, 2, 0, -1, 2, 0, -2, 2, 0, -3, 2, 0, -3, 1, 0, -3, 0, 0, -3, 65535, 0, -3, 65534, 0, -3, 65533, 0, -2, 65533, 0, -1, 65533, 0, -65536, 65533, 0, -65535, 65533, 0, -65534, 65533, 0, -65534, 65534, 0, -65534, 65535, 0, -65534, 0, 0, -65534, 1, 0, -65533, 3, 0, -65533, 2, 0, -65533, 1, 0, -65533, 0, 0, -65533, 65535, 0, -65533, 65534, 0, -65533, 65533, 0, -65533, 65532, 0, -65534, 65532, 0, -65535, 65532, 0, -65536, 65532, 0, -1, 65532, 0, -2, 65532, 0, -3, 65532, 0, -4, 65532, 0, -4, 65533, 0, -4, 65534, 0, -4, 65535, 0, -4, 0, 0, -4, 1, 0, -4, 2, 0, -4, 3, 0, -4, 4, 0, -3, 4, 0, -2, 4, 0, -2, 3, 0, -1, 3, 0, -65536, 3, 0, -65535, 3, 0, -65534, 3, 0, -3, 3, 0, -5, 4, 0, -65532, 65531, 0, -65532, 4, 0, -5, 65531, 0, -4, 65531, 0, -3, 65531, 0, -2, 65531, 0, -1, 65531, 0, -65536, 65531, 0, -65535, 65531, 0, -65534, 65531, 0, -65533, 65531, 0, -65532, 65532, 0, -65532, 65533, 0, -65532, 65534, 0, -65532, 65535, 0, -65532, 0, 0, -65532, 1, 0, -65532, 2, 0, -65532, 3, 0, -65533, 4, 0, -65534, 4, 0, -65535, 4, 0, -65536, 4, 0, -1, 4, 0, -5, 3, 0, -5, 2, 0, -5, 1, 0, -5, 0, 0, -5, 65535, 0, -5, 65534, 0, -5, 65533, 0, -5, 65532, 0, 1, 65531, 2, 1, 65532, 2, 1, 65533, 2, 0, 65531, 0, 0, 65532, 0, 0, 65533, 0, 65535, 65533, 0, 65535, 65532, 0, 65535, 65531, 0, 65534, 65531, 0, 65534, 65532, 0, 65534, 65533, 0, 131071, 65531, 0, 131071, 65532, 0, 131071, 65533, 0, 131070, 65533, 0, 131070, 65532, 0, 131070, 65531, 0, 65536, 65531, 2, 65536, 65532, 2, 65536, 65533, 2, 196607, 65533, 2, 196607, 65532, 2, 196607, 65531, 2, 196606, 65533, 0, 196606, 65532, 0, 196606, 65531, 0, 262141, 65531, 131073, 262141, 65532, 131073, 262141, 65533, 131073, 262140, 65533, 131073, 262140, 65532, 131073, 262140, 65531, 131073, 262139, 65533, 131073, 262139, 65532, 131073, 262139, 65531, 131073, 262139, 65534, 131073, 262140, 65534, 131073, 262141, 65534, 131073, 262141, 65535, 131073, 262140, 65535, 131073, 262139, 65535, 131073, 262141, 0, 131073, 262139, 0, 131073, 262140, 0, 131073, 196603, 1, 0, 196604, 1, 0, 196605, 1, 0, 196605, 2, 0, 196604, 2, 0, 196603, 2, 0, 196603, 3, 0, 196604, 3, 0, 196605, 3, 0, 196603, 4, 0, 196604, 4, 0, 196605, 4, 0, 131068, 4, 0, 131069, 4, 0, 131068, 3, 0, 131069, 3, 0, 131068, 2, 0, 131069, 2, 0, 131068, 1, 0, 131069, 1, 0, 65533, 2, 0, 65533, 3, 0, 65533, 4, 0, 65532, 2, 0, 65532, 3, 0, 65532, 4, 0, 65532, 1, 0, 65533, 1, 0, 65531, 1, 0, 65531, 2, 0, 65531, 3, 0, 65531, 4, 0, 131067, 1, 0, 131067, 2, 0, 131067, 3, 0, 131067, 4, 0, 1, 3, 1, 0, 3, 1, 0, 2, 1, 1, 2, 1, 2, 3, 1, 2, 2, 1, 0, 1, 1, 1, 1, 1, 2, 1, 1)
 }
 metadata/_editor_floor_ = Vector3(0, 0, 0)
-
-[node name="Player" parent="." unique_id=634872658 instance=ExtResource("3_tktdh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8593693, 0)
-floor_constant_speed = true
-floor_max_angle = 0.87266463
 
 [node name="CameraPivot" type="Marker3D" parent="." unique_id=580800645]
 
@@ -41,3 +41,17 @@ environment = SubResource("Environment_cxxcb")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=738592287]
 transform = Transform3D(-4.371139e-08, -0.76604444, 0.64278764, 0, 0.64278764, 0.76604444, -1, 3.3484866e-08, -2.809714e-08, 0, 0, 0)
 light_angular_distance = 90.0
+
+[node name="TransitionTrigger" parent="." unique_id=436090286 instance=ExtResource("4_4k0kt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.604694, 1.735805, 2.516482)
+next_scene = ExtResource("5_cxxcb")
+next_spawn = "Test"
+
+[node name="Mesh" type="MeshInstance3D" parent="TransitionTrigger" unique_id=920511942]
+mesh = SubResource("SphereMesh_cxxcb")
+
+[node name="Collider" type="CollisionShape3D" parent="TransitionTrigger" unique_id=1620571227]
+shape = SubResource("BoxShape3D_r5sj3")
+
+[node name="Test" type="Marker3D" parent="." unique_id=1691063641]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5098681, 1.1208985, -3.5946064)

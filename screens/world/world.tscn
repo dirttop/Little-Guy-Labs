@@ -3,8 +3,24 @@
 [ext_resource type="Script" uid="uid://crdpri0x35tmj" path="res://screens/world/world.gd" id="1_rcnok"]
 [ext_resource type="Resource" uid="uid://1npqetx60pc4" path="res://globals/data/world_data/world_data.tres" id="2_34uwq"]
 [ext_resource type="PackedScene" uid="uid://b8s66g3ft7p2l" path="res://elements/characters/controllers/player_controller/player.tscn" id="3_uq6ha"]
+[ext_resource type="PackedScene" uid="uid://b8texgwk7dgn4" path="res://screens/ui/scenes/transition/transition.tscn" id="4_1pfnf"]
 
 [node name="World" type="Node3D" unique_id=630707126]
 script = ExtResource("1_rcnok")
 world_data = ExtResource("2_34uwq")
 player_scene = ExtResource("3_uq6ha")
+
+[node name="UI" type="Control" parent="." unique_id=735684307]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Transition" parent="UI" unique_id=35367232 instance=ExtResource("4_1pfnf")]
+layout_mode = 1
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 1.0

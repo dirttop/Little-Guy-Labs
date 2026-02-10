@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="115.0761"
+   height="54.669884"
+   viewBox="0 0 115.0761 54.669884"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.2 (f4327f4, 2025-05-13)"
+   sodipodi:docname="infinity.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="px"
+     inkscape:zoom="8"
+     inkscape:cx="42.4375"
+     inkscape:cy="56.5625"
+     inkscape:window-width="2560"
+     inkscape:window-height="1377"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1">
+    <inkscape:page
+       x="0"
+       y="0"
+       width="115.0761"
+       height="54.669884"
+       id="page2"
+       margin="0"
+       bleed="0" />
+  </sodipodi:namedview>
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-2.2383166,-32.646484)">
+    <path
+       id="infinity-path"
+       style="fill:none;stroke:#0088aa;stroke-width:12"
+       d="m 29.554688,38.646484 c -5.46496,0 -10.929986,2.084282 -15.09961,6.253907 -8.3392447,8.339248 -8.3392457,21.859971 0,30.199218 8.339247,8.339247 21.859972,8.339247 30.199219,0 C 48.823922,70.929984 59.751953,60 59.751953,60 c 0,0 -10.928031,-10.929986 -15.097656,-15.099609 -4.169624,-4.169625 -9.63465,-6.253907 -15.099609,-6.253907 z m 60.443359,0 c -5.464961,0 -10.929985,2.084282 -15.099609,6.253907 C 70.728814,49.070014 59.800781,60 59.800781,60 c 0,0 10.928032,10.929984 15.097657,15.099609 8.339248,8.339247 21.859961,8.339247 30.199222,0 8.33924,-8.339247 8.33924,-21.85997 0,-30.199218 -4.16963,-4.169625 -9.634652,-6.253907 -15.099613,-6.253907 z" />
+  </g>
+  <style
+     id="style2">stroke-dashoffset: 0;#infinity-path { fill: none !important;  stroke: #008ba3;   stroke-width: 8; /* Adjusted for your viewbox */  stroke-dasharray: 1000;  stroke-dashoffset: 1000;  animation: draw 4s linear infinite; }
+.draw { to }
+</style>
+</svg>

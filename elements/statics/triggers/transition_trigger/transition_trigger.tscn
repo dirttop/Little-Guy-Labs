@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cyxpr6pqbwc1r"]
+
+[ext_resource type="Script" uid="uid://c48mjrc3i8aqs" path="res://elements/statics/triggers/transition_trigger/transition_trigger.gd" id="1_s2nyj"]
+
+[node name="TransitionTrigger" type="Area3D" unique_id=436090286]
+collision_mask = 2
+monitorable = false
+script = ExtResource("1_s2nyj")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

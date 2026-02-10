@@ -1,12 +1,198 @@
-[gd_scene format=3 uid="uid://dlcxu5kuuky8g"]
+[gd_scene format=3 uid="uid://b8texgwk7dgn4"]
 
-[ext_resource type="Script" uid="uid://cerewg53uh7t2" path="res://screens/ui/scenes/transition/transition.gd" id="1_ofoop"]
+[ext_resource type="Script" uid="uid://xs4e0sxlmjko" path="res://screens/ui/scenes/transition/transition.gd" id="1_vrl6j"]
+[ext_resource type="Texture2D" uid="uid://0sdttyentfnm" path="res://screens/ui/assets/svgs/transition/in.svg" id="2_g2i4m"]
+[ext_resource type="Script" uid="uid://dpppxwwtsqnoo" path="res://screens/ui/scenes/transition/loader.gd" id="2_n3u6u"]
+[ext_resource type="Texture2D" uid="uid://80mixd55clwd" path="res://screens/ui/assets/svgs/transition/out.svg" id="3_j2s02"]
 
-[node name="Transition" type="Control" unique_id=377454423]
+[sub_resource type="Animation" id="Animation_4h4au"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Screen:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1152, 0)]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Screen:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Screen/Margin/Loader:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ofoop"]
+resource_name = "hide_loader"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Screen/Margin/Loader:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_n3u6u"]
+resource_name = "show_loader"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Screen/Margin/Loader:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_vrl6j"]
+resource_name = "trans_in"
+length = 1.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Screen:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 1, 1.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-1452, 0), Vector2(-1402, 0), Vector2(-50, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_fuyvw"]
+resource_name = "trans_out"
+length = 1.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Screen:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 1, 1.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-50, 0), Vector2(-1402, 0), Vector2(-1452, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7opoq"]
+_data = {
+&"RESET": SubResource("Animation_4h4au"),
+&"hide_loader": SubResource("Animation_ofoop"),
+&"show_loader": SubResource("Animation_n3u6u"),
+&"trans_in": SubResource("Animation_vrl6j"),
+&"trans_out": SubResource("Animation_fuyvw")
+}
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n3u6u"]
+
+[node name="Transition" type="Control" unique_id=35367232]
 layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -1.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vrl6j")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1608851592]
+libraries/ = SubResource("AnimationLibrary_7opoq")
+
+[node name="Screen" type="Control" parent="." unique_id=1629504241]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_ofoop")
+
+[node name="Rect" type="ColorRect" parent="Screen" unique_id=1119119260]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="In" type="Sprite2D" parent="Screen" unique_id=2095218907]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(1311.0001, 324)
+scale = Vector2(0.44989377, 0.9)
+texture = ExtResource("2_g2i4m")
+
+[node name="Out" type="Sprite2D" parent="Screen" unique_id=2050003772]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(1295.0001, 324.50003)
+scale = Vector2(0.45, 0.9013888)
+texture = ExtResource("3_j2s02")
+
+[node name="Margin" type="MarginContainer" parent="Screen" unique_id=24683509]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -165.0
+offset_top = -105.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="Loader" type="Panel" parent="Screen/Margin" unique_id=510183880]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_n3u6u")
+
+[node name="LoaderLoop" type="Line2D" parent="Screen/Margin/Loader" unique_id=1075985675]
+texture_filter = 1
+position = Vector2(-5, 19)
+width = 20.0
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+script = ExtResource("2_n3u6u")
+width_scale = 75.0
+snake_length = 0.5
+
+[node name="Timer" type="Timer" parent="Screen/Margin/Loader/LoaderLoop" unique_id=2060144219]
+wait_time = 2.0
