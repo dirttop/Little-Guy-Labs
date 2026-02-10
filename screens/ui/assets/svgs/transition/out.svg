@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="106.17773"
+   height="120"
+   viewBox="0 0 106.17773 120"
+   version="1.1"
+   id="svg1"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <g
+     id="layer1">
+    <path
+       id="rect1"
+       style="fill:#f9f9f9;stroke:#0088aa;stroke-width:0;stroke-dasharray:none"
+       d="M 0,0 V 120 H 106.17773 L 61.226562,94.046875 2.2558594,60 61.226562,25.953125 106.17773,0 Z" />
+  </g>
+</svg>
