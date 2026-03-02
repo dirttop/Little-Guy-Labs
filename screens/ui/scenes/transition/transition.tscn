@@ -156,6 +156,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="In" type="TextureRect" parent="Screen" unique_id=802710516]
+visible = false
 modulate = Color(0, 0, 0, 1)
 layout_mode = 0
 offset_left = 1152.0

@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://cnahf8p6cjeqo"]
+
+[node name="LevelDoor" type="StaticBody3D" unique_id=1851832839]
+
+[node name="Mesh" type="MeshInstance3D" parent="." unique_id=290792445]
+
+[node name="Collider" type="CollisionShape3D" parent="." unique_id=614566881]

@@ -1,6 +1,6 @@
 extends Node
 
-'''World Management Signals'''
+## World Management Signals
 signal request_next
 signal load_next
 signal loaded
