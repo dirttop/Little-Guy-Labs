@@ -1,11 +1,7 @@
 class_name SaveData extends Resource
 
+@export_group("Data")
 @export var levels: Array[LevelData] = []
-
-func get_level_data(target_id: String) -> LevelData:
-	for level in levels:
-		if level.level_id == target_id:
-			return level
-			
-	printerr("Error (Load): Level ID not found in save data: " + target_id)
-	return null
+@export var artifact_count: int = 0
+@export var upgrades: Array[UpgradeData] = []
+@export var section: String = ""

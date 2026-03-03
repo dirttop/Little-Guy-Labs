@@ -1,0 +1,128 @@
+[gd_scene format=3 uid="uid://cfudhqbfimsyn"]
+
+[ext_resource type="PackedScene" uid="uid://uhotpbvgm2xv" path="res://screens/ui/scenes/title_screen/title_background/title_background.tscn" id="1_4bqmn"]
+[ext_resource type="Script" uid="uid://dtb2im06t661s" path="res://screens/ui/scenes/title_screen/button_manager/button_manager.gd" id="2_lenk0"]
+[ext_resource type="PackedScene" uid="uid://digjx8fba12qj" path="res://screens/ui/scenes/title_screen/save_slot/save_slot.tscn" id="3_8ca71"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8ca71"]
+font_size = 64
+
+[node name="TitleScreen" type="Control" unique_id=1277320430]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="SubViewportContainer" parent="." unique_id=1603444725]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="Background" unique_id=261603616]
+handle_input_locally = false
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="TitleBackground" parent="Background/SubViewport" unique_id=1145669494 instance=ExtResource("1_4bqmn")]
+
+[node name="Foreground" type="Control" parent="." unique_id=779435345]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Player" type="AnimationPlayer" parent="Foreground" unique_id=291891242]
+root_node = NodePath("../..")
+
+[node name="Margin" type="MarginContainer" parent="Foreground" unique_id=1321552230]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 60
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 60
+
+[node name="Main" type="VBoxContainer" parent="Foreground/Margin" unique_id=915361072]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/separation = 32
+
+[node name="Label" type="Label" parent="Foreground/Margin/Main" unique_id=1418985477]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "TITLE NAME"
+label_settings = SubResource("LabelSettings_8ca71")
+
+[node name="ButtonMargin" type="MarginContainer" parent="Foreground/Margin/Main" unique_id=520792489]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 10
+
+[node name="ButtonVBox" type="VBoxContainer" parent="Foreground/Margin/Main/ButtonMargin" unique_id=1078225668]
+layout_mode = 2
+theme_override_constants/separation = 24
+script = ExtResource("2_lenk0")
+
+[node name="Start" type="Button" parent="Foreground/Margin/Main/ButtonMargin/ButtonVBox" unique_id=550552067]
+layout_mode = 2
+text = "Start"
+
+[node name="Options" type="Button" parent="Foreground/Margin/Main/ButtonMargin/ButtonVBox" unique_id=1967492014]
+layout_mode = 2
+text = "Options"
+
+[node name="Achievements" type="Button" parent="Foreground/Margin/Main/ButtonMargin/ButtonVBox" unique_id=523530859]
+layout_mode = 2
+text = "Achievements"
+
+[node name="Quit" type="Button" parent="Foreground/Margin/Main/ButtonMargin/ButtonVBox" unique_id=946172834]
+layout_mode = 2
+text = "Quit"
+
+[node name="Saves" type="VBoxContainer" parent="Foreground/Margin" unique_id=1744163919]
+layout_mode = 2
+
+[node name="Back" type="Button" parent="Foreground/Margin/Saves" unique_id=1500474937]
+custom_minimum_size = Vector2(125, 50)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+text = "Back"
+
+[node name="SaveMargin" type="MarginContainer" parent="Foreground/Margin/Saves" unique_id=250385684]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 64
+
+[node name="SaveHBox" type="HBoxContainer" parent="Foreground/Margin/Saves/SaveMargin" unique_id=1009235585]
+layout_mode = 2
+theme_override_constants/separation = 64
+
+[node name="SaveSlot" parent="Foreground/Margin/Saves/SaveMargin/SaveHBox" unique_id=2017684701 instance=ExtResource("3_8ca71")]
+layout_mode = 2
+
+[node name="SaveSlot2" parent="Foreground/Margin/Saves/SaveMargin/SaveHBox" unique_id=194284971 instance=ExtResource("3_8ca71")]
+layout_mode = 2
+
+[node name="SaveSlot3" parent="Foreground/Margin/Saves/SaveMargin/SaveHBox" unique_id=1211841832 instance=ExtResource("3_8ca71")]
+layout_mode = 2
+
+[connection signal="pressed" from="Foreground/Margin/Main/ButtonMargin/ButtonVBox/Start" to="Foreground/Margin/Main/ButtonMargin/ButtonVBox" method="_on_start_pressed"]
+[connection signal="pressed" from="Foreground/Margin/Main/ButtonMargin/ButtonVBox/Options" to="Foreground/Margin/Main/ButtonMargin/ButtonVBox" method="_on_options_pressed"]
+[connection signal="pressed" from="Foreground/Margin/Main/ButtonMargin/ButtonVBox/Achievements" to="Foreground/Margin/Main/ButtonMargin/ButtonVBox" method="_on_achievements_pressed"]
+[connection signal="pressed" from="Foreground/Margin/Main/ButtonMargin/ButtonVBox/Quit" to="Foreground/Margin/Main/ButtonMargin/ButtonVBox" method="_on_quit_pressed"]

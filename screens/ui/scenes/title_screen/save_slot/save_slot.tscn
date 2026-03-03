@@ -1,0 +1,143 @@
+[gd_scene format=3 uid="uid://digjx8fba12qj"]
+
+[ext_resource type="Texture2D" uid="uid://i6s5kl54w0ms" path="res://screens/ui/assets/test/star.png" id="1_secx0"]
+[ext_resource type="Script" uid="uid://b02058kuihqan" path="res://screens/ui/scenes/title_screen/save_slot/save_slot.gd" id="1_xysd3"]
+[ext_resource type="Texture2D" uid="uid://d2mdyo28n68nt" path="res://tools/test/assets/svgs/icon.svg" id="2_xysd3"]
+[ext_resource type="Texture2D" uid="uid://c5di8e5tmxbqb" path="res://screens/ui/assets/test/arrow.png" id="3_0saeq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_hftt5"]
+
+[node name="SaveSlot" type="Control" unique_id=2017684701]
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 3
+script = ExtResource("1_xysd3")
+
+[node name="SlotButton" type="Button" parent="." unique_id=299677989]
+layout_mode = 1
+offset_right = 237.0
+offset_bottom = 445.0
+size_flags_horizontal = 3
+
+[node name="SlotMargin" type="MarginContainer" parent="SlotButton" unique_id=1370220792]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="SlotLabel" type="Label" parent="SlotButton/SlotMargin" unique_id=1122942803]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Slot 1"
+
+[node name="Load" type="VBoxContainer" parent="SlotButton/SlotMargin" unique_id=1421217223]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Spacer" type="Control" parent="SlotButton/SlotMargin/Load" unique_id=1261572068]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+
+[node name="Playtime" type="Label" parent="SlotButton/SlotMargin/Load" unique_id=1499525453]
+layout_mode = 2
+text = "0:00:00"
+
+[node name="Section" type="Label" parent="SlotButton/SlotMargin/Load" unique_id=2091218279]
+layout_mode = 2
+text = "Game Section"
+
+[node name="Artifacts" type="HBoxContainer" parent="SlotButton/SlotMargin/Load" unique_id=468406597]
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="SlotButton/SlotMargin/Load/Artifacts" unique_id=1211390730]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+texture = ExtResource("1_secx0")
+expand_mode = 1
+
+[node name="Count" type="Label" parent="SlotButton/SlotMargin/Load/Artifacts" unique_id=1146094294]
+layout_mode = 2
+text = "12"
+label_settings = SubResource("LabelSettings_hftt5")
+
+[node name="Spacer2" type="Control" parent="SlotButton/SlotMargin/Load" unique_id=38891003]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+
+[node name="Upgrades" type="HFlowContainer" parent="SlotButton/SlotMargin/Load" unique_id=1730663238]
+layout_mode = 2
+
+[node name="Placeholder" type="TextureRect" parent="SlotButton/SlotMargin/Load/Upgrades" unique_id=1343345565]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture = ExtResource("2_xysd3")
+expand_mode = 1
+
+[node name="Placeholder2" type="TextureRect" parent="SlotButton/SlotMargin/Load/Upgrades" unique_id=1193686949]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture = ExtResource("2_xysd3")
+expand_mode = 1
+
+[node name="Placeholder3" type="TextureRect" parent="SlotButton/SlotMargin/Load/Upgrades" unique_id=270698851]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture = ExtResource("2_xysd3")
+expand_mode = 1
+
+[node name="Placeholder4" type="TextureRect" parent="SlotButton/SlotMargin/Load/Upgrades" unique_id=2146202562]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture = ExtResource("2_xysd3")
+expand_mode = 1
+
+[node name="Placeholder5" type="TextureRect" parent="SlotButton/SlotMargin/Load/Upgrades" unique_id=494936250]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture = ExtResource("2_xysd3")
+expand_mode = 1
+
+[node name="Arrow" type="TextureRect" parent="SlotButton/SlotMargin/Load" unique_id=1777357482]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 10
+texture = ExtResource("3_0saeq")
+expand_mode = 1
+
+[node name="New" type="Control" parent="SlotButton/SlotMargin" unique_id=916632455]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="NewGame" type="Label" parent="SlotButton/SlotMargin/New" unique_id=405339682]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -43.5
+offset_top = -11.5
+offset_right = 43.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "NEW GAME"
+
+[node name="Load" type="Control" parent="." unique_id=2109769690]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="pressed" from="SlotButton" to="." method="_on_slot_button_pressed"]

@@ -33,3 +33,24 @@ func load_save(slot_id: int) -> void:
 
 func has_save(slot_id: int) -> bool:
 	return ResourceLoader.exists(get_save_path(slot_id))
+
+func get_level_data(target_id: String) -> LevelData:
+	for level in levels:
+		if level.level_id == target_id:
+			return level
+			
+	printerr("Error (Load): Level ID not found in save data: " + target_id)
+	return null
+	
+func get_data(slot_id: int) -> Dictionary:
+	var path := get_save_path(slot_id)
+	
+	if ResourceLoader.exists(path):
+		var data_container = ResourceLoader.load(path) as SaveData
+		if data_container:
+			return {
+				
+			}
+		
+	else: 
+		return Dictionary[null]
