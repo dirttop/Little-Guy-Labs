@@ -208,3 +208,4 @@ snake_length = 0.5
 
 [node name="Timer" type="Timer" parent="Screen/Margin/Loader/LoaderLoop" unique_id=2060144219]
 wait_time = 2.0
+autostart = true
