@@ -19,7 +19,7 @@ config/icon="res://tools/test/assets/svgs/icon.svg"
 
 SignalBus="*uid://da40rouegg6be"
 AudioBus="*uid://dxojw00p8x0nm"
-SaveManager="*uid://crcxp8xwkn3n0"
+SaveManager="*uid://btfqtvj1r4ni4"
 
 [debug]
 

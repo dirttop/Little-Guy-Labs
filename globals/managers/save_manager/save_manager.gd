@@ -20,7 +20,7 @@ func save_game(slot_id: int = current_slot):
 	if current_save:
 		current_save.last_scene = world_data.active_scene
 		current_save.last_spawn = world_data.spawn_point
-		set_artifact_count(slot_id)
+		set_artifact_count()
 		
 		SignalBus.emit_signal("saving")
 		var save = ResourceSaver.save(current_save, get_save_path(slot_id))
@@ -34,15 +34,12 @@ func save_game(slot_id: int = current_slot):
 func load_save(slot_id: int):
 	var path := get_save_path(slot_id)
 	current_slot = slot_id
-	print("loading save")
 	if ResourceLoader.exists(path):
-		print("here")
 		current_save = ResourceLoader.load(path) as SaveData
 		load_game()
 	else:
 		current_save = SaveData.new()
 		load_new_game()
-		print("loading new game")
 
 func load_game():
 	world_data.active_scene = current_save.last_scene
@@ -52,17 +49,16 @@ func load_game():
 func load_new_game():
 	world_data.active_scene = new_game_scene
 	world_data.spawn_point = new_game_spawn
+	print(world_data.spawn_point)
+	print(world_data.active_scene)
 	SignalBus.emit_signal("request_next")
 
 func has_save(slot_id: int) -> bool:
 	return ResourceLoader.exists(get_save_path(slot_id))
 
 func get_level_data(target_id: String) -> LevelData:
-	if current_save: #not sure how I feel about this implement. 
-		#gives more flex for id naming but could hit performance
-		for level in current_save.levels:
-			if level.level_id == target_id:
-				return level
+	if current_save and current_save.levels.has(target_id):
+		return current_save.levels[target_id]
 				
 	printerr("Error (Load): Level ID not found in save data: " + target_id)
 	return null
@@ -81,10 +77,10 @@ func get_data(slot_id: int) -> Dictionary:
 		
 	return {}
 
-func set_artifact_count(slot_id: int):
-	var total = 0
-	for i in current_save.levels:
-		total += i.collectible_count
+func set_artifact_count():
+	var total: int = 0
+	for level in current_save.levels.values():
+		total += level.artifact_count
 	current_save.artifact_count = total
 
 func update_playtime(added_time: float):

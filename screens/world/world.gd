@@ -17,7 +17,8 @@ func _ready():
 		_load_next()
 
 func _physics_process(delta: float) -> void:
-	_load_progress()
+	if is_loading:
+		_load_progress()
 	
 func _load_next():
 	_start_load()
@@ -40,7 +41,9 @@ func _load_progress():
 	if status == ResourceLoader.THREAD_LOAD_LOADED:
 		is_loading = false
 		var loaded_scene = ResourceLoader.load_threaded_get(loading_path)
-		_instance_scene(loaded_scene)
+		
+		await _instance_scene(loaded_scene)
+		
 		_set_player_spawn()
 		_spawn_player()
 		SignalBus.emit_signal("loaded")
@@ -68,15 +71,16 @@ func _set_player_spawn():
 			player_spawn = spawn_point.global_position
 			return
 		else:
-			printerr("Error (World): No spawn point '{world_data.spawn_point}' found in scene.")
+			printerr("Error (World): No spawn point '%s' found in scene." % world_data.spawn_point)
 			return
 
 func _spawn_player():
 	if instanced_player:
 		instanced_player.queue_free()
-		await instanced_scene.tree_exited
+		await instanced_player.tree_exited
 	
 	instanced_player = player_scene.instantiate()
 	instanced_player.position = player_spawn
 	instanced_scene.add_child(instanced_player)
+	print("new player")
 	return

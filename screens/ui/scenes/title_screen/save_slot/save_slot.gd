@@ -1,4 +1,4 @@
-extends Control
+extends Button
 
 @export var slot_num: int = 1
 var world_data: WorldData = load("res://globals/data/world_data/world_data.tres")
@@ -25,7 +25,7 @@ func update_slot(slot_id: int) -> void:
 		new_ui.visible = false
 		load_ui.visible = true
 		
-		var total_playtime = data.playtime
+		var total_playtime = int(data.playtime)
 		var playtime_sec = total_playtime % 60
 		var playtime_min = (total_playtime / 60) % 60
 		var playtime_hour = total_playtime / 3600
@@ -35,5 +35,5 @@ func update_slot(slot_id: int) -> void:
 		section.text = data.section
 		artifacts.text = str(data.artifact_count)
 
-func _on_slot_button_pressed() -> void:
+func _on_pressed() -> void:
 	SaveManager.load_save(slot_num)

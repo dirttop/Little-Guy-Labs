@@ -125,3 +125,5 @@ offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "NEW GAME"
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
