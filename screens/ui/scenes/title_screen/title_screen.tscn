@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://cfudhqbfimsyn"]
 
 [ext_resource type="PackedScene" uid="uid://uhotpbvgm2xv" path="res://screens/ui/scenes/title_screen/title_background/title_background.tscn" id="1_4bqmn"]
+[ext_resource type="Script" uid="uid://gsmq6u2wgvw1" path="res://screens/ui/scenes/title_screen/title_screen.gd" id="1_4igfj"]
+[ext_resource type="PackedScene" uid="uid://c0w7hgiteqm43" path="res://screens/world/scenes/hub/hub.tscn" id="2_7fonk"]
 [ext_resource type="Script" uid="uid://dtb2im06t661s" path="res://screens/ui/scenes/title_screen/button_manager/button_manager.gd" id="2_lenk0"]
-[ext_resource type="PackedScene" uid="uid://digjx8fba12qj" path="res://screens/ui/scenes/title_screen/save_slot/save_slot.tscn" id="3_8ca71"]
+[ext_resource type="PackedScene" uid="uid://77j7cbo7yqxi" path="res://screens/ui/scenes/title_screen/save_slot/save_slot.tscn" id="3_8ca71"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8ca71"]
 font_size = 64
@@ -14,6 +16,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_4igfj")
+next_scene = ExtResource("2_7fonk")
+next_spawn = "Test"
 
 [node name="Background" type="SubViewportContainer" parent="." unique_id=1603444725]
 layout_mode = 1
@@ -113,14 +118,16 @@ theme_override_constants/margin_right = 64
 layout_mode = 2
 theme_override_constants/separation = 64
 
-[node name="SaveSlot" parent="Foreground/Margin/Saves/SaveMargin/SaveHBox" unique_id=2017684701 instance=ExtResource("3_8ca71")]
+[node name="SaveSlot1" parent="Foreground/Margin/Saves/SaveMargin/SaveHBox" unique_id=928236823 instance=ExtResource("3_8ca71")]
 layout_mode = 2
 
-[node name="SaveSlot2" parent="Foreground/Margin/Saves/SaveMargin/SaveHBox" unique_id=194284971 instance=ExtResource("3_8ca71")]
+[node name="SaveSlot2" parent="Foreground/Margin/Saves/SaveMargin/SaveHBox" unique_id=1347525621 instance=ExtResource("3_8ca71")]
 layout_mode = 2
+slot_num = 2
 
-[node name="SaveSlot3" parent="Foreground/Margin/Saves/SaveMargin/SaveHBox" unique_id=1211841832 instance=ExtResource("3_8ca71")]
+[node name="SaveSlot3" parent="Foreground/Margin/Saves/SaveMargin/SaveHBox" unique_id=1455321578 instance=ExtResource("3_8ca71")]
 layout_mode = 2
+slot_num = 3
 
 [connection signal="pressed" from="Foreground/Margin/Main/ButtonMargin/ButtonVBox/Start" to="Foreground/Margin/Main/ButtonMargin/ButtonVBox" method="_on_start_pressed"]
 [connection signal="pressed" from="Foreground/Margin/Main/ButtonMargin/ButtonVBox/Options" to="Foreground/Margin/Main/ButtonMargin/ButtonVBox" method="_on_options_pressed"]

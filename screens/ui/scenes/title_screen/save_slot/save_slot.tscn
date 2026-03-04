@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://digjx8fba12qj"]
+[gd_scene format=3 uid="uid://77j7cbo7yqxi"]
 
 [ext_resource type="Texture2D" uid="uid://i6s5kl54w0ms" path="res://screens/ui/assets/test/star.png" id="1_secx0"]
 [ext_resource type="Script" uid="uid://b02058kuihqan" path="res://screens/ui/scenes/title_screen/save_slot/save_slot.gd" id="1_xysd3"]
@@ -7,19 +7,13 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_hftt5"]
 
-[node name="SaveSlot" type="Control" unique_id=2017684701]
-layout_mode = 3
-anchors_preset = 0
-size_flags_horizontal = 3
-script = ExtResource("1_xysd3")
-
-[node name="SlotButton" type="Button" parent="." unique_id=299677989]
-layout_mode = 1
+[node name="SaveSlot" type="Button" unique_id=928236823]
 offset_right = 237.0
 offset_bottom = 445.0
 size_flags_horizontal = 3
+script = ExtResource("1_xysd3")
 
-[node name="SlotMargin" type="MarginContainer" parent="SlotButton" unique_id=1370220792]
+[node name="SlotMargin" type="MarginContainer" parent="." unique_id=509904087]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -31,80 +25,80 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="SlotLabel" type="Label" parent="SlotButton/SlotMargin" unique_id=1122942803]
+[node name="SlotLabel" type="Label" parent="SlotMargin" unique_id=404880893]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 text = "Slot 1"
 
-[node name="Load" type="VBoxContainer" parent="SlotButton/SlotMargin" unique_id=1421217223]
+[node name="Load" type="VBoxContainer" parent="SlotMargin" unique_id=758918395]
 layout_mode = 2
 theme_override_constants/separation = 12
 
-[node name="Spacer" type="Control" parent="SlotButton/SlotMargin/Load" unique_id=1261572068]
+[node name="Spacer" type="Control" parent="SlotMargin/Load" unique_id=733735353]
 custom_minimum_size = Vector2(0, 12)
 layout_mode = 2
 
-[node name="Playtime" type="Label" parent="SlotButton/SlotMargin/Load" unique_id=1499525453]
+[node name="Playtime" type="Label" parent="SlotMargin/Load" unique_id=643774621]
 layout_mode = 2
 text = "0:00:00"
 
-[node name="Section" type="Label" parent="SlotButton/SlotMargin/Load" unique_id=2091218279]
+[node name="Section" type="Label" parent="SlotMargin/Load" unique_id=784337648]
 layout_mode = 2
 text = "Game Section"
 
-[node name="Artifacts" type="HBoxContainer" parent="SlotButton/SlotMargin/Load" unique_id=468406597]
+[node name="Artifacts" type="HBoxContainer" parent="SlotMargin/Load" unique_id=1244105302]
 layout_mode = 2
 
-[node name="Icon" type="TextureRect" parent="SlotButton/SlotMargin/Load/Artifacts" unique_id=1211390730]
+[node name="Icon" type="TextureRect" parent="SlotMargin/Load/Artifacts" unique_id=246167823]
 custom_minimum_size = Vector2(24, 24)
 layout_mode = 2
 texture = ExtResource("1_secx0")
 expand_mode = 1
 
-[node name="Count" type="Label" parent="SlotButton/SlotMargin/Load/Artifacts" unique_id=1146094294]
+[node name="Count" type="Label" parent="SlotMargin/Load/Artifacts" unique_id=445618040]
 layout_mode = 2
 text = "12"
 label_settings = SubResource("LabelSettings_hftt5")
 
-[node name="Spacer2" type="Control" parent="SlotButton/SlotMargin/Load" unique_id=38891003]
+[node name="Spacer2" type="Control" parent="SlotMargin/Load" unique_id=1237856823]
 custom_minimum_size = Vector2(0, 12)
 layout_mode = 2
 
-[node name="Upgrades" type="HFlowContainer" parent="SlotButton/SlotMargin/Load" unique_id=1730663238]
+[node name="Upgrades" type="HFlowContainer" parent="SlotMargin/Load" unique_id=156700056]
 layout_mode = 2
 
-[node name="Placeholder" type="TextureRect" parent="SlotButton/SlotMargin/Load/Upgrades" unique_id=1343345565]
+[node name="Placeholder" type="TextureRect" parent="SlotMargin/Load/Upgrades" unique_id=1987256953]
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 texture = ExtResource("2_xysd3")
 expand_mode = 1
 
-[node name="Placeholder2" type="TextureRect" parent="SlotButton/SlotMargin/Load/Upgrades" unique_id=1193686949]
+[node name="Placeholder2" type="TextureRect" parent="SlotMargin/Load/Upgrades" unique_id=904398798]
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 texture = ExtResource("2_xysd3")
 expand_mode = 1
 
-[node name="Placeholder3" type="TextureRect" parent="SlotButton/SlotMargin/Load/Upgrades" unique_id=270698851]
+[node name="Placeholder3" type="TextureRect" parent="SlotMargin/Load/Upgrades" unique_id=85511555]
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 texture = ExtResource("2_xysd3")
 expand_mode = 1
 
-[node name="Placeholder4" type="TextureRect" parent="SlotButton/SlotMargin/Load/Upgrades" unique_id=2146202562]
+[node name="Placeholder4" type="TextureRect" parent="SlotMargin/Load/Upgrades" unique_id=1478206278]
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 texture = ExtResource("2_xysd3")
 expand_mode = 1
 
-[node name="Placeholder5" type="TextureRect" parent="SlotButton/SlotMargin/Load/Upgrades" unique_id=494936250]
+[node name="Placeholder5" type="TextureRect" parent="SlotMargin/Load/Upgrades" unique_id=1547047704]
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 texture = ExtResource("2_xysd3")
 expand_mode = 1
 
-[node name="Arrow" type="TextureRect" parent="SlotButton/SlotMargin/Load" unique_id=1777357482]
+[node name="Arrow" type="TextureRect" parent="SlotMargin/Load" unique_id=1553290226]
 custom_minimum_size = Vector2(24, 24)
 layout_mode = 2
 size_flags_horizontal = 8
@@ -112,12 +106,12 @@ size_flags_vertical = 10
 texture = ExtResource("3_0saeq")
 expand_mode = 1
 
-[node name="New" type="Control" parent="SlotButton/SlotMargin" unique_id=916632455]
+[node name="New" type="Control" parent="SlotMargin" unique_id=1769063863]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="NewGame" type="Label" parent="SlotButton/SlotMargin/New" unique_id=405339682]
+[node name="NewGame" type="Label" parent="SlotMargin/New" unique_id=885027731]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -131,13 +125,3 @@ offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "NEW GAME"
-
-[node name="Load" type="Control" parent="." unique_id=2109769690]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[connection signal="pressed" from="SlotButton" to="." method="_on_slot_button_pressed"]

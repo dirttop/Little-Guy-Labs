@@ -3,7 +3,7 @@ extends Node3D
 @export var world_data: WorldData
 @export var player_scene: PackedScene
 
-var instanced_scene: Node3D = null
+var instanced_scene: Node = null
 var instanced_player: CharacterBody3D = null
 var player_spawn: Vector3
 

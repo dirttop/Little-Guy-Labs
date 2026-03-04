@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Little Guy Labs"
-run/main_scene="uid://3dtaq7x55x3"
+run/main_scene="uid://c2o6igmqijihc"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://tools/test/assets/svgs/icon.svg"
 

@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://c0w7hgiteqm43"]
 
+[ext_resource type="Script" uid="uid://d25c1jbufvvbk" path="res://screens/world/scenes/hub/hub.gd" id="1_genyp"]
 [ext_resource type="PackedScene" uid="uid://v0hmbh0jipx3" path="res://elements/environment/scenes/world_environments/hub/hub_environment.tscn" id="1_pviuj"]
 [ext_resource type="MeshLibrary" uid="uid://dhi40sc2cw3lp" path="res://tools/test/assets/mesh_library/blockout.meshlib" id="2_5u4wg"]
 
 [node name="Hub" type="Node3D" unique_id=921560606]
+script = ExtResource("1_genyp")
 
 [node name="HubEnvironment" parent="." unique_id=1257676882 instance=ExtResource("1_pviuj")]
 
