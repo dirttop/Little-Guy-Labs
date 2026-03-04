@@ -8,4 +8,5 @@ func _display_autosave():
 	$AnimationPlayer.play("show_icon")
 
 func _hide_autosave():
+	await $AnimationPlayer.animation_finished
 	$AnimationPlayer.play("hide_icon")

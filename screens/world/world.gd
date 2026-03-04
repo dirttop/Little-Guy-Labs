@@ -84,5 +84,4 @@ func _spawn_player():
 	instanced_player = player_scene.instantiate()
 	instanced_player.position = player_spawn
 	instanced_scene.add_child(instanced_player)
-	print("new player")
 	return
