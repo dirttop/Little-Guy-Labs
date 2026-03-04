@@ -1,5 +1,5 @@
 extends Node
-@export var animation: AnimationPlayer
+@onready var animation: AnimationPlayer = $"../AnimationPlayer"
 
 func _on_start_pressed() -> void:
 	animation.play("hide_main")
@@ -16,6 +16,6 @@ func _on_quit_pressed() -> void:
 	get_tree().quit()
 
 func _on_back_pressed() -> void:
-	animation.play("hide_main")
+	animation.play("hide_saves")
 	await animation.animation_finished
-	animation.play("show_saves")
+	animation.play("show_main")
