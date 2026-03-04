@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://cfudhqbfimsyn"]
 
 [ext_resource type="PackedScene" uid="uid://uhotpbvgm2xv" path="res://screens/ui/scenes/title_screen/title_background/title_background.tscn" id="1_4bqmn"]
-[ext_resource type="Script" uid="uid://gsmq6u2wgvw1" path="res://screens/ui/scenes/title_screen/title_screen.gd" id="1_4igfj"]
 [ext_resource type="Script" uid="uid://dtb2im06t661s" path="res://screens/ui/scenes/title_screen/button_manager/button_manager.gd" id="2_lenk0"]
 [ext_resource type="PackedScene" uid="uid://77j7cbo7yqxi" path="res://screens/ui/scenes/title_screen/save_slot/save_slot.tscn" id="3_8ca71"]
 
@@ -183,7 +182,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_4igfj")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=291891242]
 libraries/ = SubResource("AnimationLibrary_1dgix")
@@ -210,6 +208,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 script = ExtResource("2_lenk0")
 
 [node name="Margin" type="MarginContainer" parent="Foreground" unique_id=1321552230]
@@ -228,6 +227,7 @@ theme_override_constants/margin_bottom = 60
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+mouse_filter = 0
 theme_override_constants/separation = 32
 
 [node name="Label" type="Label" parent="Foreground/Margin/Main" unique_id=1418985477]

@@ -7,10 +7,10 @@ func _on_start_pressed() -> void:
 	animation.play("show_saves")
 
 func _on_options_pressed() -> void:
-	pass # Replace with function body.
+	pass
 
 func _on_achievements_pressed() -> void:
-	pass # Replace with function body.
+	pass
 
 func _on_quit_pressed() -> void:
 	get_tree().quit()
