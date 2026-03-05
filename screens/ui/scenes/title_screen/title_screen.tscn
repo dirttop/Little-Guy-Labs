@@ -1,0 +1,307 @@
+[gd_scene format=3 uid="uid://cfudhqbfimsyn"]
+
+[ext_resource type="PackedScene" uid="uid://uhotpbvgm2xv" path="res://screens/ui/scenes/title_screen/title_background/title_background.tscn" id="1_4bqmn"]
+[ext_resource type="Script" uid="uid://dtb2im06t661s" path="res://screens/ui/scenes/title_screen/button_manager/button_manager.gd" id="2_lenk0"]
+[ext_resource type="PackedScene" uid="uid://77j7cbo7yqxi" path="res://screens/ui/scenes/title_screen/save_slot/save_slot.tscn" id="3_8ca71"]
+
+[sub_resource type="Animation" id="Animation_2q26d"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Foreground/Margin/Main:mouse_filter")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Foreground/Margin/Main:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Foreground/Margin/Saves:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Foreground/Margin/Saves:mouse_filter")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_4igfj"]
+resource_name = "hide_main"
+length = 0.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Foreground/Margin/Main:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Foreground/Margin/Main:mouse_filter")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_1dgix"]
+resource_name = "hide_saves"
+length = 0.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Foreground/Margin/Saves:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Foreground/Margin/Saves:mouse_filter")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_7fonk"]
+resource_name = "show_main"
+length = 0.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Foreground/Margin/Main:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Foreground/Margin/Main:mouse_filter")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [2, 1]
+}
+
+[sub_resource type="Animation" id="Animation_5ps8q"]
+resource_name = "show_saves"
+length = 0.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Foreground/Margin/Saves:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Foreground/Margin/Saves:mouse_filter")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [2, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1dgix"]
+_data = {
+&"RESET": SubResource("Animation_2q26d"),
+&"hide_main": SubResource("Animation_4igfj"),
+&"hide_saves": SubResource("Animation_1dgix"),
+&"show_main": SubResource("Animation_7fonk"),
+&"show_saves": SubResource("Animation_5ps8q")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_8ca71"]
+font_size = 64
+
+[node name="TitleScreen" type="Control" unique_id=1277320430]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=291891242]
+libraries/ = SubResource("AnimationLibrary_1dgix")
+
+[node name="Background" type="SubViewportContainer" parent="." unique_id=1603444725]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="Background" unique_id=261603616]
+handle_input_locally = false
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="TitleBackground" parent="Background/SubViewport" unique_id=1145669494 instance=ExtResource("1_4bqmn")]
+
+[node name="Foreground" type="Control" parent="." unique_id=779435345]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("2_lenk0")
+
+[node name="Margin" type="MarginContainer" parent="Foreground" unique_id=1321552230]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 60
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 60
+
+[node name="Main" type="VBoxContainer" parent="Foreground/Margin" unique_id=915361072]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+mouse_filter = 0
+theme_override_constants/separation = 32
+
+[node name="Label" type="Label" parent="Foreground/Margin/Main" unique_id=1418985477]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "TITLE NAME"
+label_settings = SubResource("LabelSettings_8ca71")
+
+[node name="ButtonMargin" type="MarginContainer" parent="Foreground/Margin/Main" unique_id=520792489]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 10
+
+[node name="ButtonVBox" type="VBoxContainer" parent="Foreground/Margin/Main/ButtonMargin" unique_id=1078225668]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="Start" type="Button" parent="Foreground/Margin/Main/ButtonMargin/ButtonVBox" unique_id=550552067]
+layout_mode = 2
+text = "Start"
+
+[node name="Options" type="Button" parent="Foreground/Margin/Main/ButtonMargin/ButtonVBox" unique_id=1967492014]
+layout_mode = 2
+text = "Options"
+
+[node name="Achievements" type="Button" parent="Foreground/Margin/Main/ButtonMargin/ButtonVBox" unique_id=523530859]
+layout_mode = 2
+text = "Achievements"
+
+[node name="Quit" type="Button" parent="Foreground/Margin/Main/ButtonMargin/ButtonVBox" unique_id=946172834]
+layout_mode = 2
+text = "Quit"
+
+[node name="Saves" type="VBoxContainer" parent="Foreground/Margin" unique_id=1744163919]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Back" type="Button" parent="Foreground/Margin/Saves" unique_id=1500474937]
+custom_minimum_size = Vector2(125, 50)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+text = "Back"
+
+[node name="SaveMargin" type="MarginContainer" parent="Foreground/Margin/Saves" unique_id=250385684]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 64
+
+[node name="SaveHBox" type="HBoxContainer" parent="Foreground/Margin/Saves/SaveMargin" unique_id=1009235585]
+layout_mode = 2
+theme_override_constants/separation = 64
+
+[node name="SaveSlot1" parent="Foreground/Margin/Saves/SaveMargin/SaveHBox" unique_id=928236823 instance=ExtResource("3_8ca71")]
+layout_mode = 2
+
+[node name="SaveSlot2" parent="Foreground/Margin/Saves/SaveMargin/SaveHBox" unique_id=1347525621 instance=ExtResource("3_8ca71")]
+layout_mode = 2
+slot_num = 2
+
+[node name="SaveSlot3" parent="Foreground/Margin/Saves/SaveMargin/SaveHBox" unique_id=1455321578 instance=ExtResource("3_8ca71")]
+layout_mode = 2
+slot_num = 3
+
+[connection signal="pressed" from="Foreground/Margin/Main/ButtonMargin/ButtonVBox/Start" to="Foreground" method="_on_start_pressed"]
+[connection signal="pressed" from="Foreground/Margin/Main/ButtonMargin/ButtonVBox/Options" to="Foreground" method="_on_options_pressed"]
+[connection signal="pressed" from="Foreground/Margin/Main/ButtonMargin/ButtonVBox/Achievements" to="Foreground" method="_on_achievements_pressed"]
+[connection signal="pressed" from="Foreground/Margin/Main/ButtonMargin/ButtonVBox/Quit" to="Foreground" method="_on_quit_pressed"]
+[connection signal="pressed" from="Foreground/Margin/Saves/Back" to="Foreground" method="_on_back_pressed"]

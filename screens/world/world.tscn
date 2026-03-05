@@ -4,23 +4,18 @@
 [ext_resource type="Resource" uid="uid://1npqetx60pc4" path="res://globals/data/world_data/world_data.tres" id="2_34uwq"]
 [ext_resource type="PackedScene" uid="uid://b8s66g3ft7p2l" path="res://elements/characters/controllers/player_controller/player.tscn" id="3_uq6ha"]
 [ext_resource type="PackedScene" uid="uid://b8texgwk7dgn4" path="res://screens/ui/scenes/transition/transition.tscn" id="4_1pfnf"]
+[ext_resource type="PackedScene" uid="uid://ctjc874u2y5sw" path="res://screens/ui/scenes/auto_save/auto_save.tscn" id="5_ubpsi"]
 
 [node name="World" type="Node3D" unique_id=630707126]
 script = ExtResource("1_rcnok")
 world_data = ExtResource("2_34uwq")
 player_scene = ExtResource("3_uq6ha")
 
-[node name="UI" type="Control" parent="." unique_id=735684307]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Playtime" type="Timer" parent="." unique_id=1411455073]
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=735684307]
+layer = 10
 
 [node name="Transition" parent="UI" unique_id=35367232 instance=ExtResource("4_1pfnf")]
-layout_mode = 1
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 0.0
-offset_bottom = 1.0
+
+[node name="AutoSave" parent="UI" unique_id=1069544002 instance=ExtResource("5_ubpsi")]
