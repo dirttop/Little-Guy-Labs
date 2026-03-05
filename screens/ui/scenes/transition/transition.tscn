@@ -138,7 +138,6 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 0.00012207031
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.05, 1.05)
@@ -179,21 +178,21 @@ texture = ExtResource("3_j2s02")
 
 [node name="Margin" type="MarginContainer" parent="Screen" unique_id=24683509]
 layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -165.0
-offset_top = -105.0
-grow_horizontal = 0
-grow_vertical = 0
-theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 50
+offset_right = -54.857056
+offset_bottom = -29.904663
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_right = 144
+theme_override_constants/margin_bottom = 108
 
 [node name="Loader" type="Panel" parent="Screen/Margin" unique_id=510183880]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
 theme_override_styles/panel = SubResource("StyleBoxEmpty_n3u6u")
 
 [node name="LoaderLoop" type="Line2D" parent="Screen/Margin/Loader" unique_id=1075985675]

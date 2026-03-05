@@ -23,9 +23,10 @@ func _handle_horizontal_velocity(delta: float) -> void:
 	if (camera == null):
 		printerr("Error Missing Camera: No Camera3D enabled")
 	else:
-		var marker = camera.get_parent()
-		if marker is not Marker3D:
-			printerr("Error Invalid Camera: Camera3D must be the child of a Marker3D node to determine rotation.")
+		var marker = camera.get_parent().get_parent()
+		#if marker is not Marker3D:
+		#	pass #hey rafe, commented this out bc im fucking with my own camera implement
+			#printerr("Error Invalid Camera: Camera3D must be the child of a Marker3D node to determine rotation.")
 		move_vector = move_vector.rotated(Vector3.UP, marker.rotation.y)
 	var target_vel = move_vector * speed
 	var next_velocity = velocity.move_toward(target_vel, acceleration * delta)
