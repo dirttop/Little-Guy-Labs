@@ -1,3 +1,31 @@
 [gd_scene format=3 uid="uid://cpk8oa22qbjsv"]
 
+[ext_resource type="MeshLibrary" uid="uid://dhi40sc2cw3lp" path="res://tools/test/assets/mesh_library/blockout.meshlib" id="1_a75po"]
+[ext_resource type="PackedScene" uid="uid://blxx3r148bfba" path="res://elements/environment/scenes/world_environments/prehistoric/prehistoric_environment.tscn" id="1_ex34i"]
+[ext_resource type="PackedScene" uid="uid://dbkug0a2u4y76" path="res://screens/world/camera/pivot_camera/pivot_camera.tscn" id="2_fnn1i"]
+[ext_resource type="PackedScene" uid="uid://ckr3lvspmoofq" path="res://elements/statics/artifact/artifact.tscn" id="4_ahn1i"]
+[ext_resource type="Resource" uid="uid://s85nyfm1kh5e" path="res://screens/world/scenes/levels/1_prehistoric/1-a/1-a.tres" id="5_jcbxx"]
+
 [node name="1A" type="Node3D" unique_id=1166439283]
+
+[node name="PrehistoricEnvironment" parent="." unique_id=375710843 instance=ExtResource("1_ex34i")]
+
+[node name="GridMap" type="GridMap" parent="." unique_id=683156905]
+mesh_library = ExtResource("1_a75po")
+cell_size = Vector3(1, 1, 1)
+data = {
+"cells": PackedInt32Array(-1, 65535, 0, -1, 0, 0, -65536, 0, 0, -65536, 65535, 0, -2, 65534, 0, -2, 65535, 0, -2, 0, 0, -2, 1, 0, -1, 1, 0, -65536, 1, 0, -65535, 1, 0, -65535, 0, 0, -65535, 65535, 0, -65535, 65534, 0, -65536, 65534, 0, -1, 65534, 0, -3, 65533, 0, -3, 65534, 0, -3, 65535, 0, -3, 0, 0, -3, 1, 0, -3, 2, 0, -2, 2, 0, -65536, 2, 0, -65535, 2, 0, -65534, 2, 0, -65534, 1, 0, -65534, 0, 0, -65534, 65535, 0, -65534, 65534, 0, -65534, 65533, 0, -65535, 65533, 0, -65536, 65533, 0, -1, 65533, 0, -2, 65533, 0, -1, 2, 0)
+}
+metadata/_editor_floor_ = Vector3(0, -1, 0)
+
+[node name="PivotCamera" parent="." unique_id=615779495 instance=ExtResource("2_fnn1i")]
+
+[node name="Spawn" type="Marker3D" parent="." unique_id=977839360]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0941317, 1.5942192)
+
+[node name="Artifact" parent="." unique_id=423635918 instance=ExtResource("4_ahn1i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0068415, -2.1983633)
+artifact_index = -1
+level_data = ExtResource("5_jcbxx")
+main_artifact = true
+hub_spawn = "1A"

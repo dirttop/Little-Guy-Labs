@@ -25,6 +25,11 @@ SaveManager="*uid://btfqtvj1r4ni4"
 
 gdscript/warnings/unused_signal=0
 
+[display]
+
+window/size/mode=3
+window/stretch/mode="viewport"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/set_scene/plugin.cfg")

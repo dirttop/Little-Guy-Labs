@@ -18,6 +18,7 @@ extends Node3D
 @export var pitch_down: float = 80.0 #degrees
 
 const sens_mult: float = 0.001 
+#this is used to keep mouse sens in a sensible range, prob just need a better implement
 
 var is_rotating: bool = false
 var target_zoom: float = 10.0
