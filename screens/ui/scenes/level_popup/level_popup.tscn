@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://ccs4y1ag00p3"]
+
+[ext_resource type="Texture2D" uid="uid://dra0lcd1sbtd3" path="res://screens/ui/assets/test/level_bubble.png" id="1_rj3ur"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_rqd0n"]
+font_size = 48
+font_color = Color(0, 0, 0, 1)
+
+[node name="LevelPopup" type="Control" unique_id=2005492562]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Texture" type="TextureRect" parent="." unique_id=256100581]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -300.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_rj3ur")
+expand_mode = 1
+
+[node name="Margin" type="MarginContainer" parent="Texture" unique_id=1769898407]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 78
+theme_override_constants/margin_top = 72
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="VBox" type="VBoxContainer" parent="Texture/Margin" unique_id=1087850128]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="LevelName" type="Label" parent="Texture/Margin/VBox" unique_id=1852168929]
+layout_mode = 2
+text = "1-A"
+label_settings = SubResource("LabelSettings_rqd0n")
+
+[node name="Metrics" type="HBoxContainer" parent="Texture/Margin/VBox" unique_id=434068459]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 24

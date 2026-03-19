@@ -1,0 +1,124 @@
+[gd_scene format=3 uid="uid://ckr3lvspmoofq"]
+
+[ext_resource type="Script" uid="uid://ds8v2qnhkqsdl" path="res://elements/statics/artifact/artifact.gd" id="1_ckigj"]
+
+[sub_resource type="Animation" id="Animation_ckigj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mesh:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Mesh:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Mesh:transparency")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_rpeeb"]
+resource_name = "collect"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mesh:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 1, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Mesh:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(1.1, 1.1, 1.1), Vector3(1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Mesh:transparency")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.6, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a2dlr"]
+_data = {
+&"RESET": SubResource("Animation_ckigj"),
+&"collect": SubResource("Animation_rpeeb")
+}
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_eqafa"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ckigj"]
+transparency = 1
+albedo_color = Color(1, 0.827451, 0.50980395, 1)
+metallic = 1.0
+roughness = 0.3
+
+[sub_resource type="BoxMesh" id="BoxMesh_rpeeb"]
+material = SubResource("StandardMaterial3D_ckigj")
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_rpeeb"]
+
+[node name="Artifact" type="StaticBody3D" unique_id=423635918]
+script = ExtResource("1_ckigj")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1013904678]
+libraries/ = SubResource("AnimationLibrary_a2dlr")
+
+[node name="Collider" type="CollisionShape3D" parent="." unique_id=428082440]
+shape = SubResource("SphereShape3D_eqafa")
+disabled = true
+
+[node name="Mesh" type="MeshInstance3D" parent="." unique_id=21374266]
+mesh = SubResource("BoxMesh_rpeeb")
+
+[node name="Area" type="Area3D" parent="." unique_id=482864459]
+collision_mask = 2
+monitorable = false
+
+[node name="Collider" type="CollisionShape3D" parent="Area" unique_id=1050980688]
+shape = SubResource("SphereShape3D_rpeeb")
+
+[connection signal="body_entered" from="Area" to="." method="_on_area_body_entered"]
+[connection signal="body_exited" from="Area" to="." method="_on_area_body_exited"]

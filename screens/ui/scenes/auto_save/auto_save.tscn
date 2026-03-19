@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://ctjc874u2y5sw"]
+
+[ext_resource type="Texture2D" uid="uid://ckjlbphfjrw55" path="res://screens/ui/assets/test/save.png" id="1_8pkpy"]
+[ext_resource type="Script" uid="uid://dcg1ndpsfh44b" path="res://screens/ui/scenes/auto_save/auto_save.gd" id="1_au7ga"]
+
+[sub_resource type="Animation" id="Animation_8pkpy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Margin/SaveIcon:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_au7ga"]
+resource_name = "hide_icon"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Margin/SaveIcon:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_0u70j"]
+resource_name = "show_icon"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Margin/SaveIcon:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_78amx"]
+_data = {
+&"RESET": SubResource("Animation_8pkpy"),
+&"hide_icon": SubResource("Animation_au7ga"),
+&"show_icon": SubResource("Animation_0u70j")
+}
+
+[node name="AutoSave" type="Control" unique_id=1069544002]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_au7ga")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1608902406]
+libraries/ = SubResource("AnimationLibrary_78amx")
+
+[node name="Margin" type="MarginContainer" parent="." unique_id=1901383899]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -64.0
+offset_right = 64.0
+grow_vertical = 0
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="SaveIcon" type="TextureRect" parent="Margin" unique_id=1095244206]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+texture = ExtResource("1_8pkpy")
+expand_mode = 1

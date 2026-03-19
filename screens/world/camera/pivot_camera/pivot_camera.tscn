@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dbkug0a2u4y76"]
+
+[ext_resource type="Script" uid="uid://b6aqm0sc2arw3" path="res://screens/world/camera/pivot_camera/pivot_camera.gd" id="1_nh5p6"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_nh5p6"]
+
+[node name="PivotCamera" type="Node3D" unique_id=615779495]
+script = ExtResource("1_nh5p6")
+
+[node name="CameraArm" type="SpringArm3D" parent="." unique_id=1941382415]
+collision_mask = 0
+shape = SubResource("SphereShape3D_nh5p6")
+spring_length = 20.0
+
+[node name="Camera" type="Camera3D" parent="CameraArm" unique_id=58923706]
+current = true
