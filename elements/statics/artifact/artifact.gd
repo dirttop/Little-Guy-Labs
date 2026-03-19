@@ -13,6 +13,7 @@ var rotation_speed = 1
 
 func _ready() -> void:
 	SignalBus.connect("next_ready", Callable(self, "_on_level_start"))
+	SignalBus.connect("load_next", Callable(self, "_on_level_exit"))
 	$AnimationPlayer.play("RESET")
 	#gleb: I am not crazy
 	#we get an error otherwise because the spawn changes before it's actually 'ready'
@@ -28,15 +29,18 @@ func _process(delta: float) -> void:
 	$Mesh.rotate_y(rotation_speed*delta)
 
 func _on_area_body_entered(body: Node3D) -> void:
+	SignalBus.emit_signal("artifact_collected", artifact_index)
 	rotation_speed = 5
 	$AnimationPlayer.play("collect")
-	await $AnimationPlayer.animation_finished
 	
 	if main_artifact:
 		_end_level()
 	else:
 		_update_data()
-	queue_free()
+		
+	await $AnimationPlayer.animation_finished
+	if !main_artifact:
+		queue_free()
 		
 func _update_data():
 	level_data.artifacts[artifact_index] = true
@@ -45,5 +49,7 @@ func _update_data():
 func _end_level():
 	level_data.is_completed = true
 	SignalBus.emit_signal("request_next")
-	
+
+func _on_level_exit():
+	SignalBus.emit_signal("exit_level")
 	
