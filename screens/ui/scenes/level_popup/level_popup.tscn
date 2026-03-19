@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ccs4y1ag00p3"]
 
 [ext_resource type="Texture2D" uid="uid://dra0lcd1sbtd3" path="res://screens/ui/assets/test/level_bubble.png" id="1_rj3ur"]
+[ext_resource type="PackedScene" uid="uid://cnvkutatiilv5" path="res://screens/ui/scenes/artifact_icon/aritfact_icon.tscn" id="2_rj3ur"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_rqd0n"]
 font_size = 48
@@ -50,3 +51,6 @@ label_settings = SubResource("LabelSettings_rqd0n")
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_constants/separation = 24
+
+[node name="ArtifactIcon" parent="Texture/Margin/VBox/Metrics" unique_id=1114924318 instance=ExtResource("2_rj3ur")]
+layout_mode = 2
