@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://lue1olrc7jft"]
 
 [ext_resource type="Script" uid="uid://dhqrlxleirq7t" path="res://screens/ui/scenes/collectible_tracker/collectible_tracker.gd" id="1_lxhtl"]
-[ext_resource type="PackedScene" uid="uid://c3i26bsay0fsq" path="res://screens/ui/scenes/artifact_icon/artifact_icon.tscn" id="2_3tlu6"]
+[ext_resource type="PackedScene" uid="uid://cnvkutatiilv5" path="res://screens/ui/scenes/artifact_icon/aritfact_icon.tscn" id="2_3tlu6"]
 
 [node name="CollectibleTracker" type="Control" unique_id=827860803]
 layout_mode = 3

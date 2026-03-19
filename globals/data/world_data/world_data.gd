@@ -5,4 +5,4 @@ class_name WorldData extends Resource
 @export var active_scene: PackedScene
 @export var spawn_point: String
 @export var save_scene: PackedScene
-@export var save_pos: Vector3
+@export var save_point: String
