@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://b7ea6qb54yitx"]
+[gd_scene format=3 uid="uid://b8s66g3ft7p2l"]
 
 [ext_resource type="Script" uid="uid://l4x0lfyc1nbr" path="res://elements/characters/controllers/player_controller/player.gd" id="1_pilp0"]
 [ext_resource type="PackedScene" uid="uid://gp3i0l7w4shm" path="res://elements/characters/components/base_components/gravity/gravity.tscn" id="1_vhhxv"]
@@ -13,18 +13,24 @@ height = 1.0
 radius = 0.25
 height = 1.0
 
-[node name="Player" type="CharacterBody3D" unique_id=634872658]
+[node name="Player" type="CharacterBody3D" unique_id=634872658 groups=["player"]]
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_pilp0")
 speed = 5
-acceleration = 300
-pushing_force = 2.0
+acceleration = 20
+pushing_force = 5
+
+[node name="Gravity" parent="." unique_id=114934454 instance=ExtResource("1_vhhxv")]
+
+[node name="PlayerJump" parent="." unique_id=1164390139 node_paths=PackedStringArray("player") instance=ExtResource("2_pilp0")]
+player = NodePath("..")
+jump_velocity = 4
 
 [node name="Mesh" type="MeshInstance3D" parent="." unique_id=773885104]
 mesh = SubResource("CapsuleMesh_pilp0")
 
-[node name="MainCollider" type="CollisionShape3D" parent="." unique_id=1528074861]
+[node name="MainCollider" type="CollisionShape3D" parent="." unique_id=1178566539]
 shape = SubResource("CapsuleShape3D_pilp0")
 
 [node name="CameraPivot" type="Marker3D" parent="." unique_id=348598842]

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="LevelData" format=3 uid="uid://s85nyfm1kh5e"]
+
+[ext_resource type="Script" uid="uid://ld1h8chhg2dk" path="res://globals/data/level_data/level_data.gd" id="1_otpbx"]
+
+[resource]
+script = ExtResource("1_otpbx")
+level_id = "1-a"
+is_unlocked = true
+metadata/_custom_type_script = "uid://ld1h8chhg2dk"
