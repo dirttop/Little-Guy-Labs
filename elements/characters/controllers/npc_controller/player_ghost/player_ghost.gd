@@ -1,52 +1,34 @@
 extends CharacterBody3D
-class_name Player
+class_name PlayerGhost
 
-@export var speed: int
-@export var acceleration: int
-@export var pushing_force: float
+var mass
 
-@export var mass: float = 80
-
-# Used for recording loops
-var input_vector: Vector3
+var input_framelist: Array[Vector3]
+var index = 0
+var start_transform: Transform3D
 
 func _ready() -> void:
-	pass
+	start_transform = transform
+	if not visible:
+		collision_mask = TimeLoopManager.IN_LOOP_COLLISION_LAYER
 
 func _physics_process(delta: float) -> void:
-	_handle_horizontal_velocity(delta)
-	_handle_collisions()
 	$Gravity.handle_gravity(self, delta)
-	#print(velocity.y)
-	$PlayerJump.handle_jump()
-	
-	if $PlayerJump.holding_jump:
-		input_vector.y = $PlayerJump.jump_velocity
+	var curr_input = input_framelist[index]
+	if curr_input.y != 0:
+		velocity = curr_input
 	else:
-		input_vector.y = 0
+		velocity.x = curr_input.x
+		velocity.z = curr_input.z
+	index += 1
+	
+	if index >= input_framelist.size():
+		index = 0
+		transform = start_transform
+	
+	_handle_collisions()
 	
 	move_and_slide()
-
-
-func _handle_horizontal_velocity(delta: float) -> void:
-	var v = Input.get_vector("left", "right", "forwards", "backwards")
-	var move_vector = Vector3(v.x, 0, v.y)
-	var camera = get_viewport().get_camera_3d()
-	if (camera == null):
-		printerr("Error Missing Camera: No Camera3D enabled")
-	else:
-		var marker = camera.get_parent().get_parent()
-		#if marker is not Marker3D:
-		#	pass #hey rafe, commented this out bc im fucking with my own camera implement
-			#printerr("Error Invalid Camera: Camera3D must be the child of a Marker3D node to determine rotation.")
-		move_vector = move_vector.rotated(Vector3.UP, marker.rotation.y)
-	var target_vel = move_vector * speed
-	var next_velocity = velocity.move_toward(target_vel, acceleration * delta)
-	velocity.x = next_velocity.x
-	velocity.z = next_velocity.z
-	input_vector.x = velocity.x
-	input_vector.z = velocity.z
-
 
 func _handle_collisions() -> void:
 	for i in get_slide_collision_count():

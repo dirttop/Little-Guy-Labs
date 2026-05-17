@@ -1,6 +1,6 @@
 extends Node
 
-@export var player: CharacterBody3D
+@export var player: Player
 @export var jump_velocity: int
 
 var jumped := false

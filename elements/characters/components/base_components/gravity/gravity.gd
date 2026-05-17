@@ -8,7 +8,7 @@ var is_falling: bool = false
 var disabled: bool = false
 
 func handle_gravity(body: CharacterBody3D, delta: float) -> void:
-	if not body.is_on_floor() and !disabled:
+	if not body.is_on_floor() and not disabled:
 		var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 		gravity *= modifier
 		body.velocity.y -= gravity * delta

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://t4mobwot36ay"]
+
+[ext_resource type="Script" uid="uid://dwnyymyqdtsj6" path="res://elements/characters/components/player_components/player_loop/player_loop.gd" id="1_tbp74"]
+
+[node name="PlayerLoop" type="Node" unique_id=978111489]
+script = ExtResource("1_tbp74")

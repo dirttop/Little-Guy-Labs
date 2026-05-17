@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dk70sikk6g6l8"]
+
+[ext_resource type="Script" uid="uid://k5krq4v8ecsa" path="res://elements/characters/components/base_components/physics_move/physics_move.gd" id="1_7ylml"]
+
+[node name="PhysicsMove" type="Node" unique_id=1324448685]
+script = ExtResource("1_7ylml")
