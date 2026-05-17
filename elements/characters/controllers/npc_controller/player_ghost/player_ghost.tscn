@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://dn3ofettqx0c"]
+
+[ext_resource type="Script" uid="uid://db2b2h6tg5nx2" path="res://elements/characters/controllers/npc_controller/player_ghost/player_ghost.gd" id="1_d1p5p"]
+[ext_resource type="PackedScene" uid="uid://gp3i0l7w4shm" path="res://elements/characters/components/base_components/gravity/gravity.tscn" id="2_b58ip"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b58ip"]
+transparency = 1
+albedo_color = Color(0.20392157, 0.23137255, 1, 0.43137255)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_b58ip"]
+material = SubResource("StandardMaterial3D_b58ip")
+radius = 0.25
+height = 1.0
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_b58ip"]
+radius = 0.25
+height = 1.0
+
+[node name="PlayerGhost" type="CharacterBody3D" unique_id=554629549]
+collision_layer = 0
+collision_mask = 13
+script = ExtResource("1_d1p5p")
+
+[node name="Gravity" parent="." unique_id=114934454 instance=ExtResource("2_b58ip")]
+
+[node name="Mesh" type="MeshInstance3D" parent="." unique_id=311388406]
+mesh = SubResource("CapsuleMesh_b58ip")
+
+[node name="MainCollider" type="CollisionShape3D" parent="." unique_id=1182281848]
+shape = SubResource("CapsuleShape3D_b58ip")
