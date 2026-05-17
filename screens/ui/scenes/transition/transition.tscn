@@ -185,8 +185,8 @@ offset_right = -54.857056
 offset_bottom = -29.904663
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_right = 144
-theme_override_constants/margin_bottom = 108
+theme_override_constants/margin_right = 180
+theme_override_constants/margin_bottom = 132
 
 [node name="Loader" type="Panel" parent="Screen/Margin" unique_id=510183880]
 modulate = Color(1, 1, 1, 0)

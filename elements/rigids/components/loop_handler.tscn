@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://xcbgpnspi5bt"]
+
+[ext_resource type="Script" uid="uid://cnxqu7cfo4k10" path="res://elements/rigids/components/loop_handler.gd" id="1_mtki5"]
+
+[node name="LoopHandler" type="Node" unique_id=1155739159]
+script = ExtResource("1_mtki5")

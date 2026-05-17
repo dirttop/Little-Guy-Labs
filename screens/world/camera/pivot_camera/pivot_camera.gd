@@ -16,6 +16,7 @@ extends Node3D
 @export_group("Rotation Settings") 
 @export var pitch_up: float = -80.0 #degrees
 @export var pitch_down: float = 80.0 #degrees
+@export var starting_pitch: Vector2 = Vector2(0,0)
 
 const sens_mult: float = 0.001 
 #this is used to keep mouse sens in a sensible range, prob just need a better implement
@@ -26,7 +27,8 @@ var target_zoom: float = 10.0
 func _ready() -> void:
 	target_zoom = camera_arm.spring_length
 	target_zoom = clamp(target_zoom, min_zoom, max_zoom)
-	rotation.x = clamp(rotation.x, deg_to_rad(pitch_up), deg_to_rad(pitch_down))
+	rotation.x = clamp(rotation.x, deg_to_rad(starting_pitch.x), deg_to_rad(starting_pitch.y))
+	
 
 func _unhandled_input(event: InputEvent) -> void:
 	_mouse_input(event)

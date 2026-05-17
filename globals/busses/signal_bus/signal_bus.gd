@@ -9,6 +9,9 @@ signal next_ready
 ## UI Management Signals
 signal saving
 signal saved
+signal enter_level(level_data)
+signal exit_level
+signal artifact_collected(index)
 
 ## Game Management Signals
 signal new_game
