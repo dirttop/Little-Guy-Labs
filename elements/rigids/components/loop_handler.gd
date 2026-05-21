@@ -2,9 +2,10 @@ extends Node
 class_name LoopHandler
 
 @export var target: CharacterBody3D
+@export_flags("Velocity", "Rotation") var record_properties = 3
 
 var start_transform: Transform3D
-var impulse_framelist: Array[Vector3]
+var framelist: Array[LoopFramelistData]
 var framelist_index: int = 0
 var recording := false
 var playing := false
@@ -12,42 +13,47 @@ var playing := false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	TimeLoopManager.recording_started.connect(_start_recording)
-	TimeLoopManager.recording_ended.connect(_playback)
+	TimeLoopManager.recording_ended.connect(_start_playback)
 
 
 func _physics_process(_delta: float) -> void:
 	if recording:
 		_record_frame()
 	if playing:
-		if framelist_index == 0:
-			target.sleeping = false
-		print(impulse_framelist.size())
-		#target.apply_central_impulse(impulse_framelist[framelist_index])
-		framelist_index += 1
-		if framelist_index >= impulse_framelist.size():
-			target.transform = start_transform
-			framelist_index = 0
-			target.sleeping = true
+		_play_frame()
 
 
 func _start_recording() -> void:
 	recording = true
 	playing = false
-	impulse_framelist = []
+	framelist = []
 	start_transform = target.transform
 
 
 func _record_frame() -> void:
-	var state = PhysicsServer3D.body_get_direct_state(target)
-	var frame_impulse := Vector3.ZERO
-	for i in state.get_contact_count():
-		frame_impulse += state.get_contact_impulse(i)
-	frame_impulse = Vector3(-frame_impulse.x, frame_impulse.y, -frame_impulse.z)
-	impulse_framelist.append(frame_impulse)
+	var curr_data = LoopFramelistData.new()
+	if record_properties % 4 == 1 or record_properties % 4 == 3:
+		curr_data.velocity = target.velocity
+	if record_properties % 4 == 2 or record_properties % 4 == 3:
+		curr_data.rotation = target.rotation
+	framelist.append(curr_data)
 
-func _playback() -> void:
+func _start_playback() -> void:
 	playing = true
 	recording = false
 	framelist_index = 0
 	target.collision_layer += TimeLoopManager.IN_LOOP_COLLISION_LAYER
 	target.transform = start_transform
+
+func _play_frame() -> void:
+	var curr_data = framelist[framelist_index]
+	print(curr_data.velocity)
+	if record_properties % 4 == 1 or record_properties % 4 == 3:
+		target.velocity = curr_data.velocity
+	if record_properties % 4 == 2 or record_properties % 4 == 3:
+		target.rotation = curr_data.rotation
+	
+	framelist_index += 1
+	if framelist_index >= framelist.size():
+		target.transform = start_transform
+		framelist_index = 0

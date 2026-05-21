@@ -22,17 +22,11 @@ sky_material = SubResource("ProceduralSkyMaterial_6trsn")
 background_mode = 2
 sky = SubResource("Sky_ioxeb")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ioxeb"]
-transparency = 1
-albedo_color = Color(1, 0.17254902, 0.14509805, 0.2901961)
-
-[sub_resource type="BoxMesh" id="BoxMesh_ecqqg"]
-material = SubResource("StandardMaterial3D_ioxeb")
-
 [node name="TestWorld" type="Node3D" unique_id=2116605991]
 
 [node name="Player" parent="." unique_id=634872658 instance=ExtResource("1_6trsn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7319894, 0)
+pushing_force = 1.0
 
 [node name="Floor" type="StaticBody3D" parent="." unique_id=88999712]
 
@@ -53,14 +47,18 @@ environment = SubResource("Environment_ecqqg")
 [node name="Box" parent="." unique_id=161166509 instance=ExtResource("2_ioxeb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.9349174, 1.8982093, 2.8929882)
 
-[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=676559103]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.712541, 3.0164247, 13.744252)
+[node name="LoopHandler" parent="Box" index="2" unique_id=1155739159 node_paths=PackedStringArray("target")]
+target = NodePath("..")
+record_properties = 1
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D" unique_id=217731547]
-mesh = SubResource("BoxMesh_ecqqg")
+[node name="PhysicsMove" parent="Box" index="3" unique_id=1324448685]
+friction = 10.0
+air_resistance = 0.0
 
 [node name="CameraPivot" type="Marker3D" parent="." unique_id=652543252]
 
 [node name="Camera3D" type="Camera3D" parent="CameraPivot" unique_id=825802134]
 transform = Transform3D(1, 0, 0, 0, 0.7660445, 0.64278764, 0, -0.64278764, 0.7660445, 4.8650436, 16.51249, 30.692486)
 current = true
+
+[editable path="Box"]

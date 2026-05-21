@@ -19,6 +19,7 @@ collision_mask = 5
 script = ExtResource("1_pilp0")
 speed = 5
 acceleration = 20
+pushing_force = 5.0
 
 [node name="Gravity" parent="." unique_id=114934454 instance=ExtResource("1_vhhxv")]
 
