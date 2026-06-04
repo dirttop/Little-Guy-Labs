@@ -13,7 +13,7 @@ var input_vector: Vector3
 var picked_up_object = null
 
 func _ready() -> void:
-	pass
+	TimeLoopManager.recording_ended.connect(_on_playback_while_pickup)
 
 func _physics_process(delta: float) -> void:
 	_handle_horizontal_velocity(delta)
@@ -27,10 +27,6 @@ func _physics_process(delta: float) -> void:
 		input_vector.y = $PlayerJump.jump_velocity
 	else:
 		input_vector.y = 0
-	#print(velocity)
-	#_handle_collisions(_prev_velocity)
-	#if not is_pushing:
-		#_prev_velocity = velocity
 	
 	if not picked_up_object:
 		# PlayerPickup calls this when picking up
@@ -76,23 +72,16 @@ func _handle_pickup() -> void:
 		if Input.is_action_just_pressed("interact"):
 			for child in picked_up_object.get_children():
 				if child is PlayerPickup:
-					child.drop()
+					child.drop(false)
 					picked_up_object = null
 					break
 
-#func _handle_collisions(prev_velocity: Vector3) -> void:
-	#var found_pushable = false
-	#for i in get_slide_collision_count():
-		#var collision = get_slide_collision(i)
-		#var collider = collision.get_collider()
-		#
-		#if collider is CharacterBody3D:
-			#found_pushable = true
-			#is_pushing = true
-			#print("prev: " + str(prev_velocity))
-			#for node in collider.get_children():
-				#if node is PhysicsMove:
-					#if prev_velocity != Vector3.ZERO:
-						#collider.velocity = prev_velocity
-	#if not found_pushable:
-		#is_pushing = false
+
+func _on_playback_while_pickup() -> void:
+	if not picked_up_object:
+		return
+	for child in picked_up_object.get_children():
+		if child is PlayerPickup:
+			child.drop(true)
+			picked_up_object = null
+			break

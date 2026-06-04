@@ -16,7 +16,7 @@ height = 1.0
 [sub_resource type="BoxMesh" id="BoxMesh_dfjux"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dfjux"]
-size = Vector3(0.005, 1, 0.49)
+size = Vector3(0.005, 1, 0.45)
 
 [node name="Player" type="CharacterBody3D" unique_id=634872658 groups=["player"]]
 collision_layer = 2

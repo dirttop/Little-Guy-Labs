@@ -25,15 +25,18 @@ mesh = SubResource("BoxMesh_ifvoa")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1774157722]
 shape = SubResource("BoxShape3D_ifvoa")
 
-[node name="LoopHandler" parent="." unique_id=1155739159 instance=ExtResource("2_rgw5u")]
+[node name="LoopHandler" parent="." unique_id=1155739159 node_paths=PackedStringArray("target", "physics_move") instance=ExtResource("2_rgw5u")]
+target = NodePath("..")
+physics_move = NodePath("../PhysicsMove")
 
 [node name="PhysicsMove" parent="." unique_id=1324448685 node_paths=PackedStringArray("target") instance=ExtResource("2_cui1h")]
 target = NodePath("..")
 friction = 200.0
 air_resistance = 100.0
 
-[node name="PlayerPickup" parent="." unique_id=27818413 node_paths=PackedStringArray("target") instance=ExtResource("3_cui1h")]
+[node name="PlayerPickup" parent="." unique_id=27818413 node_paths=PackedStringArray("target", "physics_move") instance=ExtResource("3_cui1h")]
 target = NodePath("..")
+physics_move = NodePath("../PhysicsMove")
 
 [node name="Side1" type="Area3D" parent="." unique_id=897439140]
 collision_layer = 4

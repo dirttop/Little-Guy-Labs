@@ -16,11 +16,10 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if not enabled:
 		return
-	
 	if target.is_on_floor():
 		target.velocity = target.velocity.move_toward(Vector3.ZERO, friction * delta)
 	else:
 		target.velocity.x = target.velocity.move_toward(Vector3.ZERO, air_resistance * delta).x
 		target.velocity.y -= ProjectSettings.get_setting("physics/3d/default_gravity") * delta
-	
+		
 	target.move_and_slide()
