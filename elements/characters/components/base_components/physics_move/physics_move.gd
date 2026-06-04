@@ -1,12 +1,12 @@
 extends Node
 class_name PhysicsMove
 
+@export var enabled = true
 @export var target: CharacterBody3D
-#s@export var mass: float
+#@export var mass: float
 @export var friction: float
 @export var air_resistance: float
-@export var pushable := true
-	
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -14,6 +14,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
+	if not enabled:
+		return
+	
 	if target.is_on_floor():
 		target.velocity = target.velocity.move_toward(Vector3.ZERO, friction * delta)
 	else:
