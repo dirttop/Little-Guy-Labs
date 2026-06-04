@@ -1,16 +1,19 @@
 [gd_scene format=3 uid="uid://bim10ytvc0vp3"]
 
 [ext_resource type="PackedScene" uid="uid://dk70sikk6g6l8" path="res://elements/characters/components/base_components/physics_move/physics_move.tscn" id="2_cui1h"]
-[ext_resource type="PackedScene" uid="uid://xcbgpnspi5bt" path="res://elements/rigids/components/loop_handler.tscn" id="2_rgw5u"]
+[ext_resource type="PackedScene" uid="uid://xcbgpnspi5bt" path="res://elements/rigids/components/loop_handler/loop_handler.tscn" id="2_rgw5u"]
+[ext_resource type="PackedScene" uid="uid://c54fl4eyftnbc" path="res://elements/rigids/components/player_pickup/player_pickup.tscn" id="3_cui1h"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ifvoa"]
 albedo_color = Color(0.17816469, 0.040250026, 0.023842487, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_ifvoa"]
 material = SubResource("StandardMaterial3D_ifvoa")
-size = Vector3(1.5, 1.5, 1.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ifvoa"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cui1h"]
+size = Vector3(0.98, 0.005, 0.95)
 
 [node name="Box" type="CharacterBody3D" unique_id=75593029]
 collision_layer = 4
@@ -26,6 +29,52 @@ shape = SubResource("BoxShape3D_ifvoa")
 
 [node name="PhysicsMove" parent="." unique_id=1324448685 node_paths=PackedStringArray("target") instance=ExtResource("2_cui1h")]
 target = NodePath("..")
-mass = 1.0
 friction = 200.0
 air_resistance = 100.0
+
+[node name="PlayerPickup" parent="." unique_id=27818413 node_paths=PackedStringArray("target") instance=ExtResource("3_cui1h")]
+target = NodePath("..")
+
+[node name="Side1" type="Area3D" parent="." unique_id=897439140]
+collision_layer = 4
+collision_mask = 5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Side1" unique_id=1827106224]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.025, 0.51)
+shape = SubResource("BoxShape3D_cui1h")
+
+[node name="Side2" type="Area3D" parent="." unique_id=1777027164]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+collision_layer = 4
+collision_mask = 5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Side2" unique_id=211449667]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.025, 0.51)
+shape = SubResource("BoxShape3D_cui1h")
+
+[node name="Side3" type="Area3D" parent="." unique_id=632908781]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+collision_layer = 4
+collision_mask = 5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Side3" unique_id=1198120890]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.025, 0.51)
+shape = SubResource("BoxShape3D_cui1h")
+
+[node name="Side4" type="Area3D" parent="." unique_id=1750571841]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
+collision_layer = 4
+collision_mask = 5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Side4" unique_id=1554976557]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.025, 0.51)
+shape = SubResource("BoxShape3D_cui1h")
+
+[connection signal="body_entered" from="Side1" to="PlayerPickup" method="_on_side_1_body_entered"]
+[connection signal="body_exited" from="Side1" to="PlayerPickup" method="_on_side_1_body_exited"]
+[connection signal="body_entered" from="Side2" to="PlayerPickup" method="_on_side_2_body_entered"]
+[connection signal="body_exited" from="Side2" to="PlayerPickup" method="_on_side_2_body_exited"]
+[connection signal="body_entered" from="Side3" to="PlayerPickup" method="_on_side_3_body_entered"]
+[connection signal="body_exited" from="Side3" to="PlayerPickup" method="_on_side_3_body_exited"]
+[connection signal="body_entered" from="Side4" to="PlayerPickup" method="_on_side_4_body_entered"]
+[connection signal="body_exited" from="Side4" to="PlayerPickup" method="_on_side_4_body_exited"]
