@@ -10,7 +10,7 @@ class_name Player
 # Used for recording loops
 var input_vector: Vector3
 
-var picking_up := false
+var picked_up_object = null
 
 func _ready() -> void:
 	pass
@@ -32,7 +32,7 @@ func _physics_process(delta: float) -> void:
 	#if not is_pushing:
 		#_prev_velocity = velocity
 	
-	if not picking_up:
+	if not picked_up_object:
 		# PlayerPickup calls this when picking up
 		move_and_slide()
 
@@ -52,7 +52,7 @@ func _handle_horizontal_velocity(delta: float) -> void:
 	var target_vel = move_vector * speed
 	var next_velocity = velocity.move_toward(target_vel, acceleration * delta)
 	
-	if target_vel != Vector3.ZERO and not picking_up:
+	if target_vel != Vector3.ZERO and not picked_up_object:
 		var rot_target = Vector3(target_vel.x, 0, target_vel.z)
 		var rot_angle = Vector3(0, 0, 1).signed_angle_to(rot_target, Vector3.UP)
 		rotation.y = rot_angle
@@ -64,14 +64,20 @@ func _handle_horizontal_velocity(delta: float) -> void:
 
 
 func _handle_pickup() -> void:
-	if not picking_up:
+	if not picked_up_object:
 		if Input.is_action_just_pressed("interact") and $PickupRaycast.is_colliding():
 			var c = $PickupRaycast.get_collider()
 			for child in c.get_children():
 				if child is PlayerPickup:
 					child.pickup(self)
-					picking_up = true
-					# TODO: pickup mechanics
+					picked_up_object = c
+					break
+	else:
+		if Input.is_action_just_pressed("interact"):
+			for child in picked_up_object.get_children():
+				if child is PlayerPickup:
+					child.drop()
+					picked_up_object = null
 					break
 
 #func _handle_collisions(prev_velocity: Vector3) -> void:
