@@ -6,6 +6,7 @@ class_name Player
 @export var pushing_force: float
 
 @export var mass: float = 80
+@export var rotation_speed: float = 10.0
 
 # Used for recording loops
 var input_vector: Vector3
@@ -17,8 +18,8 @@ func _physics_process(delta: float) -> void:
 	_handle_horizontal_velocity(delta)
 	_handle_collisions()
 	$Gravity.handle_gravity(self, delta)
-	#print(velocity.y)
 	$PlayerJump.handle_jump()
+	$PlayerMesh.handle_animation(velocity, is_on_floor())
 	
 	if $PlayerJump.holding_jump:
 		input_vector.y = $PlayerJump.jump_velocity
@@ -40,6 +41,12 @@ func _handle_horizontal_velocity(delta: float) -> void:
 		#	pass #hey rafe, commented this out bc im fucking with my own camera implement
 			#printerr("Error Invalid Camera: Camera3D must be the child of a Marker3D node to determine rotation.")
 		move_vector = move_vector.rotated(Vector3.UP, marker.rotation.y)
+	
+	if v.length_squared() > 0.0:
+		var target_angle = atan2(move_vector.x, move_vector.z)
+		$PlayerMesh.rotation.y = lerp_angle($PlayerMesh.rotation.y, target_angle, rotation_speed * delta)
+	#handles mesh rotation
+	
 	var target_vel = move_vector * speed
 	var next_velocity = velocity.move_toward(target_vel, acceleration * delta)
 	velocity.x = next_velocity.x
