@@ -4,14 +4,11 @@
 [ext_resource type="PackedScene" uid="uid://gp3i0l7w4shm" path="res://elements/characters/components/base_components/gravity/gravity.tscn" id="1_vhhxv"]
 [ext_resource type="PackedScene" uid="uid://01h31cbpjc68" path="res://elements/characters/components/player_components/player_jump/player_jump.tscn" id="2_pilp0"]
 [ext_resource type="PackedScene" uid="uid://t4mobwot36ay" path="res://elements/characters/components/player_components/player_loop/player_loop.tscn" id="4_dfjux"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_pilp0"]
-radius = 0.25
-height = 1.0
+[ext_resource type="PackedScene" uid="uid://bs0ohphv7mp45" path="res://tools/test/assets/models/player/player_mesh.tscn" id="4_n3fbj"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pilp0"]
 radius = 0.25
-height = 1.0
+height = 1.0673828
 
 [sub_resource type="BoxMesh" id="BoxMesh_dfjux"]
 
@@ -26,16 +23,17 @@ speed = 5
 acceleration = 20
 pushing_force = 5.0
 
+[node name="PlayerMesh" parent="." unique_id=60638535 node_paths=PackedStringArray("body") instance=ExtResource("4_n3fbj")]
+body = NodePath("..")
+
 [node name="Gravity" parent="." unique_id=114934454 instance=ExtResource("1_vhhxv")]
 
 [node name="PlayerJump" parent="." unique_id=1164390139 node_paths=PackedStringArray("player") instance=ExtResource("2_pilp0")]
 player = NodePath("..")
 jump_velocity = 4
 
-[node name="Mesh" type="MeshInstance3D" parent="." unique_id=773885104]
-mesh = SubResource("CapsuleMesh_pilp0")
-
 [node name="MainCollider" type="CollisionShape3D" parent="." unique_id=1178566539]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5000402, 0)
 shape = SubResource("CapsuleShape3D_pilp0")
 
 [node name="CameraPivot" type="Marker3D" parent="." unique_id=348598842]
