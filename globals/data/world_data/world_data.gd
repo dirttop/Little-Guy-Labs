@@ -1,4 +1,3 @@
-@tool #tbh not sure why I set this to tool, will keep for now lol
 class_name WorldData extends Resource
 
 @export_group("current")
