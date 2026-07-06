@@ -64,8 +64,7 @@ func _physics_process(_delta: float) -> void:
 	target.move_and_slide()
 	
 	var dist_diff = (player.position - target.position) - target_dist
-	player.position -= dist_diff / 2
-	target.position += dist_diff / 2
+	player.position -= dist_diff
 
 
 func pickup(p: Player) -> void:
@@ -90,9 +89,10 @@ func pickup(p: Player) -> void:
 		sides.get_node("Side4").connect("body_exited", _on_player_side_4_body_exited)
 
 
-func drop() -> void:
+func drop(is_recording: bool) -> void:
 	picked_up = false
-	physics_move.enabled = true
+	if not is_recording:
+		physics_move.enabled = true
 	
 	target.collision_layer += 4
 	
