@@ -101,6 +101,7 @@ size = Vector3(0.5, 0.5, 0.5)
 [sub_resource type="SphereShape3D" id="SphereShape3D_rpeeb"]
 
 [node name="Artifact" type="StaticBody3D" unique_id=423635918]
+collision_layer = 0
 script = ExtResource("1_ckigj")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1013904678]

@@ -86,6 +86,8 @@ _data = {
 &"collect": SubResource("Animation_rpeeb")
 }
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_g84dr"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n2eyn"]
 albedo_color = Color(0.18039216, 0.16470589, 1, 1)
 
@@ -93,25 +95,23 @@ albedo_color = Color(0.18039216, 0.16470589, 1, 1)
 material = SubResource("StandardMaterial3D_n2eyn")
 size = Vector3(0.5, 0.5, 0.5)
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_g84dr"]
-
 [sub_resource type="SphereShape3D" id="SphereShape3D_n2eyn"]
 
 [node name="ClockPiece" type="StaticBody3D" unique_id=774825635]
-collision_layer = 4
-collision_mask = 0
+collision_layer = 0
 script = ExtResource("1_g84dr")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=278238653]
 libraries/ = SubResource("AnimationLibrary_n2eyn")
 
-[node name="Mesh" type="MeshInstance3D" parent="." unique_id=222381666]
-mesh = SubResource("BoxMesh_n2eyn")
-
 [node name="Collider" type="CollisionShape3D" parent="." unique_id=2136205435]
 shape = SubResource("SphereShape3D_g84dr")
 
+[node name="Mesh" type="MeshInstance3D" parent="." unique_id=222381666]
+mesh = SubResource("BoxMesh_n2eyn")
+
 [node name="Area3D" type="Area3D" parent="." unique_id=1693889491]
+collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=589436543]
 shape = SubResource("SphereShape3D_n2eyn")
