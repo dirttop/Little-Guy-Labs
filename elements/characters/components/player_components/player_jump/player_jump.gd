@@ -3,6 +3,7 @@ extends Node
 @export var player: Player
 @export var jump_velocity: int
 
+
 var jumped := false
 var coyote_window := true
 var holding_jump := false
