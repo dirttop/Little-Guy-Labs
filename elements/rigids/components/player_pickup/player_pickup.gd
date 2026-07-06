@@ -64,7 +64,6 @@ func _physics_process(_delta: float) -> void:
 	target.move_and_slide()
 	
 	var dist_diff = (player.position - target.position) - target_dist
-	print(dist_diff)
 	player.position -= dist_diff / 2
 	target.position += dist_diff / 2
 
@@ -79,76 +78,102 @@ func pickup(p: Player) -> void:
 	target_dist = player.position - target.position
 	
 	var sides = player.get_node("PickupSideDetection")
-	sides.get_node("Side1").connect("body_entered", _on_player_side_1_body_entered)
-	sides.get_node("Side2").connect("body_entered", _on_player_side_2_body_entered)
-	sides.get_node("Side3").connect("body_entered", _on_player_side_3_body_entered)
-	sides.get_node("Side4").connect("body_entered", _on_player_side_4_body_entered)
+	if not sides.get_node("Side1").is_connected("body_entered", _on_player_side_1_body_entered):
+		sides.get_node("Side1").connect("body_entered", _on_player_side_1_body_entered)
+		sides.get_node("Side2").connect("body_entered", _on_player_side_2_body_entered)
+		sides.get_node("Side3").connect("body_entered", _on_player_side_3_body_entered)
+		sides.get_node("Side4").connect("body_entered", _on_player_side_4_body_entered)
+		
+		sides.get_node("Side1").connect("body_exited", _on_player_side_1_body_exited)
+		sides.get_node("Side2").connect("body_exited", _on_player_side_2_body_exited)
+		sides.get_node("Side3").connect("body_exited", _on_player_side_3_body_exited)
+		sides.get_node("Side4").connect("body_exited", _on_player_side_4_body_exited)
+
+
+func drop() -> void:
+	picked_up = false
+	physics_move.enabled = true
 	
-	sides.get_node("Side1").connect("body_exited", _on_player_side_1_body_exited)
-	sides.get_node("Side2").connect("body_exited", _on_player_side_2_body_exited)
-	sides.get_node("Side3").connect("body_exited", _on_player_side_3_body_exited)
-	sides.get_node("Side4").connect("body_exited", _on_player_side_4_body_exited)
+	target.collision_layer += 4
+	
+	player = null
 
 
 func _on_side_1_body_entered(_body: Node3D) -> void:
-	block_pos_z = true
+	if picked_up:
+		block_pos_z = true
 
 
 func _on_side_2_body_entered(_body: Node3D) -> void:
-	block_pos_x = true
+	if picked_up:
+		block_pos_x = true
 
 
 func _on_side_3_body_entered(_body: Node3D) -> void:
-	block_neg_z = true
+	if picked_up:
+		block_neg_z = true
 
 
 func _on_side_4_body_entered(_body: Node3D) -> void:
-	block_neg_x = true
+	if picked_up:
+		block_neg_x = true
 
 
 func _on_side_1_body_exited(_body: Node3D) -> void:
-	block_pos_z = false
+	if picked_up:
+		block_pos_z = false
 
 
 func _on_side_2_body_exited(_body: Node3D) -> void:
-	block_pos_x = false
+	if picked_up:
+		block_pos_x = false
 
 
 func _on_side_3_body_exited(_body: Node3D) -> void:
-	block_neg_z = false
+	if picked_up:
+		block_neg_z = false
 
 
 func _on_side_4_body_exited(_body: Node3D) -> void:
-	block_neg_x = false
+	if picked_up:
+		block_neg_x = false
 
 
 func _on_player_side_1_body_entered(_body: Node3D) -> void:
-	block_target_neg_x = true
+	if picked_up:
+		block_target_neg_x = true
 
 
 func _on_player_side_2_body_entered(_body: Node3D) -> void:
-	block_target_pos_z = true
+	if picked_up:
+		block_target_pos_z = true
 
 
 func _on_player_side_3_body_entered(_body: Node3D) -> void:
-	block_target_pos_x = true
+	if picked_up:
+		block_target_pos_x = true
 
 
 func _on_player_side_4_body_entered(_body: Node3D) -> void:
-	block_target_neg_z = true
+	if picked_up:
+		block_target_neg_z = true
 
 
 func _on_player_side_1_body_exited(_body: Node3D) -> void:
-	block_target_neg_x = false
+	if picked_up:
+		block_target_neg_x = false
 
 
 func _on_player_side_2_body_exited(_body: Node3D) -> void:
-	block_target_pos_z = false
+	if picked_up:
+		block_target_pos_z = false
 
 
 func _on_player_side_3_body_exited(_body: Node3D) -> void:
-	block_target_pos_x = false
+	if picked_up:
+		block_target_pos_x = false
 
 
 func _on_player_side_4_body_exited(_body: Node3D) -> void:
-	block_target_neg_z = false
+	if picked_up:
+		block_target_neg_z = false
