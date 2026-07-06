@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://ck9m3v6t1ydxz"]
+
+[ext_resource type="Script" uid="uid://b2xq8n4k7wpra" path="res://elements/environment/scenes/objects/button/button.gd" id="1_btn"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_base"]
+top_radius = 0.4
+bottom_radius = 0.4
+height = 0.2
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_base"]
+height = 0.2
+radius = 0.4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cap"]
+albedo_color = Color(0.8, 0.15, 0.12, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_cap"]
+top_radius = 0.3
+bottom_radius = 0.3
+height = 0.08
+material = SubResource("StandardMaterial3D_cap")
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_zone"]
+height = 0.18
+radius = 0.35
+
+[node name="Button" type="StaticBody3D"]
+collision_layer = 1
+collision_mask = 1
+script = ExtResource("1_btn")
+
+[node name="Base" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+mesh = SubResource("CylinderMesh_base")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+shape = SubResource("CylinderShape3D_base")
+
+[node name="Cap" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24, 0)
+mesh = SubResource("CylinderMesh_cap")
+
+[node name="PressZone" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 6
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PressZone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.29, 0)
+shape = SubResource("CylinderShape3D_zone")
+
+[connection signal="body_entered" from="PressZone" to="." method="_on_press_zone_body_entered"]
+[connection signal="body_exited" from="PressZone" to="." method="_on_press_zone_body_exited"]

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://co77mm3iyrm3y"]
+
+[ext_resource type="Script" path="res://_push_test.gd" id="1_test"]
+
+[node name="PushTest" type="Node3D"]
+script = ExtResource("1_test")

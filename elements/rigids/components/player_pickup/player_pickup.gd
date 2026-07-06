@@ -73,7 +73,9 @@ func pickup(p: Player) -> void:
 	physics_move.enabled = false
 	picked_up = true
 	player = p
-	target.collision_layer -= 4
+	# Ignore the held box without taking it off the Rigids layer, so platforms
+	# and other objects still see it.
+	player.add_collision_exception_with(target)
 	target_dist = player.position - target.position
 	
 	var sides = player.get_node("PickupSideDetection")

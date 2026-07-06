@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://cjr1on577yh47"]
+
+[ext_resource type="Script" uid="uid://cipmopfkusaxe" path="res://elements/environment/scenes/objects/platform/platform.gd" id="1_85hbf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_plat"]
+albedo_color = Color(0.45, 0.47, 0.5, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_2s4b4"]
+material = SubResource("StandardMaterial3D_plat")
+size = Vector3(2, 0.3, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_plat"]
+size = Vector3(2, 0.3, 2)
+
+[node name="Platform" type="AnimatableBody3D"]
+collision_layer = 5
+collision_mask = 7
+sync_to_physics = true
+script = ExtResource("1_85hbf")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_2s4b4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_plat")
