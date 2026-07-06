@@ -16,6 +16,8 @@ dest_files=["res://.godot/imported/Standing_Jump.fbx-425b6033f429a50f345b90c678e
 nodes/root_type=""
 nodes/root_name=""
 nodes/root_script=null
+mesh_library/use_node_names_as_mesh_names=false
+array_mesh/deduplicate_surfaces=true
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
@@ -41,7 +43,7 @@ _subresources={
 "animations": {
 "mixamo_com": {
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://tools/test/assets/animations/Running_Jump.res",
+"save_to_file/fallback_path": "res://tools/test/assets/animations/Standing_Jump.res",
 "save_to_file/keep_custom_tracks": "",
 "save_to_file/path": "uid://dqpy68yjkit0b",
 "settings/loop_mode": 0,
