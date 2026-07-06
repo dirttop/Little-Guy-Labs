@@ -33,6 +33,7 @@ func _ready() -> void:
 func _physics_process(_delta: float) -> void:
 	if not picked_up:
 		return
+	
 	target.velocity = player.velocity
 	
 	if block_neg_x and player.velocity.x < 0:

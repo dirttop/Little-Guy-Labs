@@ -28,6 +28,10 @@ func _physics_process(delta: float) -> void:
 		input_vector.y = $PlayerJump.jump_velocity
 	else:
 		input_vector.y = 0
+	#print(velocity)
+	#_handle_collisions(_prev_velocity)
+	#if not is_pushing:
+		#_prev_velocity = velocity
 	
 	if not picked_up_object:
 		# PlayerPickup calls this when picking up
