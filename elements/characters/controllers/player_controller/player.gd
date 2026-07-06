@@ -11,12 +11,15 @@ class_name Player
 # Used for recording loops
 var input_vector: Vector3
 
+var picked_up_object = null
+
 func _ready() -> void:
-	pass
+	TimeLoopManager.recording_ended.connect(_on_playback_while_pickup)
 
 func _physics_process(delta: float) -> void:
 	_handle_horizontal_velocity(delta)
-	_handle_collisions()
+	_handle_pickup()
+	
 	$Gravity.handle_gravity(self, delta)
 	$PlayerJump.handle_jump()
 	$PlayerMesh.handle_animation(velocity, is_on_floor())
@@ -26,7 +29,9 @@ func _physics_process(delta: float) -> void:
 	else:
 		input_vector.y = 0
 	
-	move_and_slide()
+	if not picked_up_object:
+		# PlayerPickup calls this when picking up
+		move_and_slide()
 
 
 func _handle_horizontal_velocity(delta: float) -> void:
@@ -49,30 +54,41 @@ func _handle_horizontal_velocity(delta: float) -> void:
 	
 	var target_vel = move_vector * speed
 	var next_velocity = velocity.move_toward(target_vel, acceleration * delta)
+	
+	if target_vel != Vector3.ZERO and not picked_up_object:
+		var rot_target = Vector3(target_vel.x, 0, target_vel.z)
+		var rot_angle = Vector3(0, 0, 1).signed_angle_to(rot_target, Vector3.UP)
+		rotation.y = rot_angle
+		
 	velocity.x = next_velocity.x
 	velocity.z = next_velocity.z
 	input_vector.x = velocity.x
 	input_vector.z = velocity.z
 
 
-func _handle_collisions() -> void:
-	for i in get_slide_collision_count():
-		var collision = get_slide_collision(i)
-		var collider = collision.get_collider()
-		
-		if collider is RigidBody3D:
-			var push_dir = -collision.get_normal()
-			# How much velocity the object needs to increase to match player velocity in the push direction
-			var velocity_diff_in_push_dir = self.velocity.dot(push_dir) - collider.linear_velocity.dot(push_dir)
-			# Only count velocity towards push dir, away from character
-			velocity_diff_in_push_dir = max(0., velocity_diff_in_push_dir)
-			# Objects with more mass than us should be harder to push. But doesn't really make sense to push faster than we are going
-			var mass_ratio = min(1., mass / collider.mass)
-			# Optional add: Don't push object at all if it's 4x heavier or more
-			if mass_ratio < 0.25:
-				continue
-			# Don't push object from above/below
-			push_dir.y = 0
-			# 5.0 is a magic number, adjust to your needs
-			var push_force = mass_ratio * 5.0
-			collider.apply_impulse(push_dir * velocity_diff_in_push_dir * push_force, collision.get_position() - collider.global_position)
+func _handle_pickup() -> void:
+	if not picked_up_object:
+		if Input.is_action_just_pressed("interact") and $PickupRaycast.is_colliding():
+			var c = $PickupRaycast.get_collider()
+			for child in c.get_children():
+				if child is PlayerPickup:
+					child.pickup(self)
+					picked_up_object = c
+					break
+	else:
+		if Input.is_action_just_pressed("interact"):
+			for child in picked_up_object.get_children():
+				if child is PlayerPickup:
+					child.drop(false)
+					picked_up_object = null
+					break
+
+
+func _on_playback_while_pickup() -> void:
+	if not picked_up_object:
+		return
+	for child in picked_up_object.get_children():
+		if child is PlayerPickup:
+			child.drop(true)
+			picked_up_object = null
+			break
