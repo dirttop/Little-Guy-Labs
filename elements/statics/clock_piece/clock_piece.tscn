@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://ckr3lvspmoofq"]
+[gd_scene format=3 uid="uid://wam8n2uojv87"]
 
-[ext_resource type="Script" uid="uid://ds8v2qnhkqsdl" path="res://elements/statics/artifact/artifact.gd" id="1_ckigj"]
+[ext_resource type="Script" uid="uid://bfbvpg4jkko1o" path="res://elements/statics/clock_piece/clock_piece.gd" id="1_g84dr"]
 
 [sub_resource type="Animation" id="Animation_ckigj"]
 length = 0.001
@@ -80,46 +80,40 @@ tracks/2/keys = {
 "values": [0.0, 1.0]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_a2dlr"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n2eyn"]
 _data = {
 &"RESET": SubResource("Animation_ckigj"),
 &"collect": SubResource("Animation_rpeeb")
 }
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_eqafa"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_g84dr"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ckigj"]
-transparency = 1
-albedo_color = Color(1, 0.827451, 0.50980395, 1)
-metallic = 1.0
-roughness = 0.3
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n2eyn"]
+albedo_color = Color(0.18039216, 0.16470589, 1, 1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_rpeeb"]
-material = SubResource("StandardMaterial3D_ckigj")
+[sub_resource type="BoxMesh" id="BoxMesh_n2eyn"]
+material = SubResource("StandardMaterial3D_n2eyn")
 size = Vector3(0.5, 0.5, 0.5)
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_rpeeb"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_n2eyn"]
 
-[node name="Artifact" type="StaticBody3D" unique_id=423635918]
+[node name="ClockPiece" type="StaticBody3D" unique_id=774825635]
 collision_layer = 0
-script = ExtResource("1_ckigj")
+script = ExtResource("1_g84dr")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1013904678]
-libraries/ = SubResource("AnimationLibrary_a2dlr")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=278238653]
+libraries/ = SubResource("AnimationLibrary_n2eyn")
 
-[node name="Collider" type="CollisionShape3D" parent="." unique_id=428082440]
-shape = SubResource("SphereShape3D_eqafa")
-disabled = true
+[node name="Collider" type="CollisionShape3D" parent="." unique_id=2136205435]
+shape = SubResource("SphereShape3D_g84dr")
 
-[node name="Mesh" type="MeshInstance3D" parent="." unique_id=21374266]
-mesh = SubResource("BoxMesh_rpeeb")
+[node name="Mesh" type="MeshInstance3D" parent="." unique_id=222381666]
+mesh = SubResource("BoxMesh_n2eyn")
 
-[node name="Area" type="Area3D" parent="." unique_id=482864459]
+[node name="Area3D" type="Area3D" parent="." unique_id=1693889491]
 collision_mask = 2
-monitorable = false
 
-[node name="Collider" type="CollisionShape3D" parent="Area" unique_id=1050980688]
-shape = SubResource("SphereShape3D_rpeeb")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=589436543]
+shape = SubResource("SphereShape3D_n2eyn")
 
-[connection signal="body_entered" from="Area" to="." method="_on_area_body_entered"]
-[connection signal="body_exited" from="Area" to="." method="_on_area_body_exited"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

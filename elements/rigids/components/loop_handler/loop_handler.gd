@@ -2,6 +2,8 @@ extends Node
 class_name LoopHandler
 
 @export var target: CharacterBody3D
+@export var physics_move: PhysicsMove
+@export var player_pickup: PlayerPickup
 @export_flags("Velocity", "Rotation") var record_properties = 3
 
 var start_transform: Transform3D
@@ -28,6 +30,8 @@ func _start_recording() -> void:
 	playing = false
 	framelist = []
 	start_transform = target.transform
+	if physics_move and player_pickup and not player_pickup.picked_up:
+		physics_move.enabled = true
 
 
 func _record_frame() -> void:
@@ -44,14 +48,17 @@ func _start_playback() -> void:
 	framelist_index = 0
 	target.collision_layer += TimeLoopManager.IN_LOOP_COLLISION_LAYER
 	target.transform = start_transform
+	if physics_move:
+		physics_move.enabled = false
 
 func _play_frame() -> void:
 	var curr_data = framelist[framelist_index]
-	print(curr_data.velocity)
 	if record_properties % 4 == 1 or record_properties % 4 == 3:
 		target.velocity = curr_data.velocity
 	if record_properties % 4 == 2 or record_properties % 4 == 3:
 		target.rotation = curr_data.rotation
+	
+	target.move_and_slide()
 	
 	framelist_index += 1
 	if framelist_index >= framelist.size():
