@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ccs4y1ag00p3"]
 
-[ext_resource type="Texture2D" uid="uid://dra0lcd1sbtd3" path="res://screens/ui/assets/test/level_bubble.png" id="1_rj3ur"]
+[ext_resource type="Texture2D" uid="uid://1ksenyogirlo" path="res://screens/ui/assets/svgs/popup/popup.png" id="1_rj3ur"]
 [ext_resource type="PackedScene" uid="uid://cnvkutatiilv5" path="res://screens/ui/scenes/artifact_icon/aritfact_icon.tscn" id="2_rj3ur"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_rqd0n"]
@@ -16,15 +16,14 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Texture" type="TextureRect" parent="." unique_id=256100581]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -300.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_rj3ur")
-expand_mode = 1
 
 [node name="Margin" type="MarginContainer" parent="Texture" unique_id=1769898407]
 layout_mode = 1

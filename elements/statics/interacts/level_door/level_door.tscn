@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cnahf8p6cjeqo"]
 
 [ext_resource type="Script" uid="uid://dwro5kqq5qbfr" path="res://elements/statics/interacts/level_door/level_door.gd" id="1_aq134"]
-[ext_resource type="Texture2D" uid="uid://dra0lcd1sbtd3" path="res://screens/ui/assets/test/level_bubble.png" id="3_xobtg"]
+[ext_resource type="Texture2D" uid="uid://1ksenyogirlo" path="res://screens/ui/assets/svgs/popup/popup.png" id="2_73rgw"]
 
 [sub_resource type="Animation" id="Animation_xobtg"]
 length = 0.001
@@ -177,7 +177,7 @@ texture = SubResource("ViewportTexture_73rgw")
 [node name="SubViewport" type="SubViewport" parent="Popup" unique_id=449061726]
 transparent_bg = true
 handle_input_locally = false
-size = Vector2i(612, 512)
+size = Vector2i(501, 276)
 render_target_update_mode = 4
 
 [node name="Texture" type="TextureRect" parent="Popup/SubViewport" unique_id=1628017276]
@@ -188,7 +188,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 10
-texture = ExtResource("3_xobtg")
+texture = ExtResource("2_73rgw")
 expand_mode = 1
 
 [connection signal="body_entered" from="Area" to="." method="_on_area_body_entered"]
