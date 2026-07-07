@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://dyosspfqogtgg"]
+
+[ext_resource type="Script" uid="uid://d18ephj8jdh1v" path="res://screens/ui/scenes/pause_menu/pause_menu.gd" id="1_hlrmj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gec6d"]
+bg_color = Color(0.28118682, 0.28118688, 0.28118682, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+expand_margin_left = 20.0
+expand_margin_top = 20.0
+expand_margin_right = 20.0
+expand_margin_bottom = 20.0
+shadow_size = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0af3u"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gec6d"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hlrmj"]
+
+[node name="PauseMenu" type="Control" unique_id=509658069]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_hlrmj")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1776879219]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -202.0
+offset_top = -152.0
+offset_right = 202.0
+offset_bottom = 152.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_gec6d")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=1131491512]
+custom_minimum_size = Vector2(400, 300)
+layout_mode = 2
+alignment = 1
+
+[node name="HSeparator3" type="HSeparator" parent="PanelContainer/VBoxContainer" unique_id=1617943478]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_0af3u")
+
+[node name="ResumeButton" type="Button" parent="PanelContainer/VBoxContainer" unique_id=464153035]
+layout_mode = 2
+size_flags_vertical = 3
+text = "RESUME"
+
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/VBoxContainer" unique_id=2083962806]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_gec6d")
+
+[node name="QuitButton" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1430765832]
+layout_mode = 2
+size_flags_vertical = 3
+text = "QUIT"
+
+[node name="HSeparator2" type="HSeparator" parent="PanelContainer/VBoxContainer" unique_id=269362198]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/separator = SubResource("StyleBoxEmpty_hlrmj")
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
