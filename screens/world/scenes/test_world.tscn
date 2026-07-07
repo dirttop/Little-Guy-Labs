@@ -2,6 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://b8s66g3ft7p2l" path="res://elements/characters/controllers/player_controller/player.tscn" id="1_6trsn"]
 [ext_resource type="PackedScene" uid="uid://bim10ytvc0vp3" path="res://elements/rigids/box.tscn" id="2_ioxeb"]
+[ext_resource type="PackedScene" uid="uid://cjr1on577yh47" path="res://elements/environment/scenes/objects/platform/platform.tscn" id="3_8p4e3"]
+[ext_resource type="PackedScene" uid="uid://clam3v6t1ydx0" path="res://elements/environment/scenes/objects/button/button.tscn" id="4_i0log"]
+[ext_resource type="PackedScene" uid="uid://dq4m7yak2vfhr" path="res://elements/environment/scenes/objects/toggle_button/toggle_button.tscn" id="5_i0log"]
+[ext_resource type="PackedScene" uid="uid://ct5n8w1y4rphm" path="res://elements/environment/scenes/objects/pulley/pulley.tscn" id="6_we74x"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6trsn"]
 albedo_color = Color(0.6811214, 0.30667856, 0.43880287, 1)
@@ -25,7 +29,7 @@ sky = SubResource("Sky_ioxeb")
 [node name="TestWorld" type="Node3D" unique_id=2116605991]
 
 [node name="Player" parent="." unique_id=634872658 instance=ExtResource("1_6trsn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7319894, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7193922, 5.0020027, -6.270231)
 pushing_force = 1.0
 
 [node name="Floor" type="StaticBody3D" parent="." unique_id=88999712]
@@ -45,7 +49,7 @@ light_angular_distance = 90.0
 environment = SubResource("Environment_ecqqg")
 
 [node name="Box" parent="." unique_id=161166509 instance=ExtResource("2_ioxeb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.954795, 3.0746443, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9570408, 2.4973207, -1.9205284)
 
 [node name="CameraPivot" type="Marker3D" parent="." unique_id=652543252]
 
@@ -54,4 +58,22 @@ transform = Transform3D(1, 0, 0, 0, 0.7499956, 0.66144276, 0, -0.66144276, 0.749
 current = true
 
 [node name="Box2" parent="." unique_id=75593029 instance=ExtResource("2_ioxeb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5052552, 2.3200133, 5.815478)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9668069, 0.8821187, -1.61763)
+
+[node name="Platform" parent="." unique_id=1201958161 instance=ExtResource("3_8p4e3")]
+transform = Transform3D(-0.0018914172, -0.9999982, 0, 0.9999982, -0.0018914172, 0, 0, 0, 1, 1.7268233, 1.5869441, -0.7757969)
+activators = Array[NodePath]([NodePath("../Button2")])
+
+[node name="Platform2" parent="." unique_id=394426788 instance=ExtResource("3_8p4e3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.186185, 1.3846002, -0.72207165)
+travel = Vector3(10, 0, 0)
+activators = Array[NodePath]([NodePath("../ToggleButton")])
+
+[node name="Button2" parent="." unique_id=1966630062 instance=ExtResource("4_i0log")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.3, 1.0414009)
+
+[node name="ToggleButton" parent="." unique_id=1548063998 instance=ExtResource("5_i0log")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.6313047, 0.37472272, 0.7720785)
+
+[node name="Pulley" parent="." unique_id=269590648 instance=ExtResource("6_we74x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5924048, 3.7808652, -5.9100275)

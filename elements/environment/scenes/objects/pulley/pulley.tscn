@@ -1,0 +1,84 @@
+[gd_scene load_steps=9 format=3 uid="uid://ct5n8w1y4rphm"]
+
+[ext_resource type="Script" uid="uid://ba7k3m9v2xqtd" path="res://elements/environment/scenes/objects/pulley/pulley.gd" id="1_pul"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_plat"]
+albedo_color = Color(0.45, 0.47, 0.5, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_plat"]
+material = SubResource("StandardMaterial3D_plat")
+size = Vector3(2, 0.3, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_plat"]
+size = Vector3(2, 0.3, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sensor"]
+size = Vector3(1.8, 0.2, 1.8)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_frame"]
+albedo_color = Color(0.18, 0.18, 0.2, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_beam"]
+material = SubResource("StandardMaterial3D_frame")
+size = Vector3(5.4, 0.2, 0.4)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_wheel"]
+material = SubResource("StandardMaterial3D_frame")
+top_radius = 0.3
+bottom_radius = 0.3
+height = 0.15
+
+[node name="Pulley" type="Node3D"]
+script = ExtResource("1_pul")
+
+[node name="Support" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+mesh = SubResource("BoxMesh_beam")
+
+[node name="WheelL" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, -2, 4, 0)
+mesh = SubResource("CylinderMesh_wheel")
+
+[node name="WheelR" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 2, 4, 0)
+mesh = SubResource("CylinderMesh_wheel")
+
+[node name="PlatformA" type="AnimatableBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+collision_layer = 1
+collision_mask = 1
+sync_to_physics = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PlatformA"]
+mesh = SubResource("BoxMesh_plat")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlatformA"]
+shape = SubResource("BoxShape3D_plat")
+
+[node name="LoadSensor" type="Area3D" parent="PlatformA"]
+collision_layer = 0
+collision_mask = 6
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlatformA/LoadSensor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+shape = SubResource("BoxShape3D_sensor")
+
+[node name="PlatformB" type="AnimatableBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+collision_layer = 1
+collision_mask = 1
+sync_to_physics = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PlatformB"]
+mesh = SubResource("BoxMesh_plat")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlatformB"]
+shape = SubResource("BoxShape3D_plat")
+
+[node name="LoadSensor" type="Area3D" parent="PlatformB"]
+collision_layer = 0
+collision_mask = 6
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlatformB/LoadSensor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+shape = SubResource("BoxShape3D_sensor")
