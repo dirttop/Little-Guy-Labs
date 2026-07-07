@@ -49,7 +49,7 @@ light_angular_distance = 90.0
 environment = SubResource("Environment_ecqqg")
 
 [node name="Box" parent="." unique_id=161166509 instance=ExtResource("2_ioxeb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9187794, 5.174163, -5.209953)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9570408, 2.4973207, -1.9205284)
 
 [node name="CameraPivot" type="Marker3D" parent="." unique_id=652543252]
 
