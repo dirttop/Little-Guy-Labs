@@ -24,6 +24,7 @@ acceleration = 20
 pushing_force = 5.0
 
 [node name="PlayerMesh" parent="." unique_id=60638535 node_paths=PackedStringArray("body") instance=ExtResource("4_n3fbj")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
 body = NodePath("..")
 
 [node name="Gravity" parent="." unique_id=114934454 instance=ExtResource("1_vhhxv")]
@@ -55,6 +56,7 @@ target_position = Vector3(0, 0, 1)
 collision_mask = 4
 
 [node name="PickupSideDetection" type="Node3D" parent="." unique_id=175836291]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5001952, 0)
 
 [node name="Side1" type="Area3D" parent="PickupSideDetection" unique_id=834871517]
 collision_layer = 2
